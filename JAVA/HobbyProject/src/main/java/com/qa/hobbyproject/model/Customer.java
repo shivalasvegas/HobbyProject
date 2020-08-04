@@ -14,6 +14,7 @@ public class Customer {
 	@GeneratedValue
 	@Column(name="customer_id")
 	private int customerId;
+	
 	@Column(length=50, name="customer_name")
 	private String customerName;
 	@Column(length=100, name="customer_address")
