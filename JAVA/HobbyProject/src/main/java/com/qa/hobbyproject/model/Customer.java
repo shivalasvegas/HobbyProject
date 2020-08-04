@@ -26,6 +26,19 @@ public class Customer {
 	@Column(length=15, name="customer_password")
 	private String customerPassword;
 	
+	public Customer() {
+		
+	}
+	
+	public Customer(String customerName, String customerAddress, String customerPhone, String customerEmail, String customerPassword) {
+
+		this.customerName = customerName;
+		this.customerAddress = customerAddress;
+		this.customerPhone = customerPhone;
+		this.customerEmail = customerEmail;
+		this.customerPassword = customerPassword;
+	}
+	
 	public int getCustomerId() {
 		return customerId;
 	}

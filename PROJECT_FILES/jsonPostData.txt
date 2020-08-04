@@ -1,0 +1,7 @@
+{
+"customerName":"Arthur Dent",
+"customerAddress":"155 Country Lane, Cottingham",
+"customerPhone":"01273 566755",
+"customerEmail":"adent@solarsystem.com",
+"customerPassword":"towelsrus"
+}
