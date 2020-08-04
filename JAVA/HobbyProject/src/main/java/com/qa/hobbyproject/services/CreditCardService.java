@@ -1,5 +1,5 @@
 package com.qa.hobbyproject.services;
 
-public class CreditCardServices {
+public class CreditCardService {
 
 }

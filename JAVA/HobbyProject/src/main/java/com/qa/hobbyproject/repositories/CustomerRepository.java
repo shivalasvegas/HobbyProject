@@ -3,7 +3,7 @@ package com.qa.hobbyproject.repositories;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
+//import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import com.qa.hobbyproject.model.Customer;
@@ -12,6 +12,8 @@ import com.qa.hobbyproject.model.Customer;
 public interface CustomerRepository extends JpaRepository<Customer, Integer> {
 	// Select list of customers 
 	public List<Customer> findByCustomers(int customerId);
+
+
 	
 	
 //	// Select list of customer names from table customers
