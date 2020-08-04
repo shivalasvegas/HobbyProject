@@ -16,29 +16,29 @@ public class CustomerService {
 	CustomerRepository customerRepo;
 	
 	//Create
-	public String create(Customer customer) {
+	public String createCustomer(Customer customer) {
 		this.customerRepo.save(customer);
 		return "Customer record created";
 	}
 	
 	
 	//Read
-	public List<Customer> readAll() {
+	public List<Customer> readAllCustomers() {
 		List<Customer> customerRecords = this.customerRepo.findAll();
 		return customerRecords;
 	
 	}
 	
 
-	public Customer read(int id) {
+	public Customer readCustomer(int id) {
 	Customer customer = this.customerRepo.findById(id).orElseThrow(CustomerNotFoundException::new);
 	return customer;
 }
 		
 	
 	//Update
-	public Customer update(Customer newCustomer, int id) {
-	Customer updateCustomer = read(id);
+	public Customer updateCustomer(Customer newCustomer, int id) {
+	Customer updateCustomer = readCustomer(id);
 
 	updateCustomer.setCustomerName(newCustomer.getCustomerName());
 	updateCustomer.setCustomerAddress(newCustomer.getCustomerAddress());
@@ -52,7 +52,7 @@ public class CustomerService {
 
 	
 	//Delete
-	public boolean delete(int id) {
+	public boolean deleteCustomer(int id) {
 		this.customerRepo.deleteById(id);
 		boolean deleted = !this.customerRepo.existsById(id);
 		return deleted;
