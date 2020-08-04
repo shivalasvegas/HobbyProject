@@ -11,6 +11,6 @@ import com.qa.hobbyproject.model.CreditCard;
 @Repository
 public interface CreditCardRepository extends JpaRepository<CreditCard, Integer> {
 	
-	public List<CreditCard> findByCreditCards(int cardId);
+	//public List<CreditCard> findByCreditCards(int cardId);
 
 }

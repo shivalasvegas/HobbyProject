@@ -11,7 +11,7 @@ import com.qa.hobbyproject.model.Customer;
 @Repository
 public interface CustomerRepository extends JpaRepository<Customer, Integer> {
 	// Select list of customers 
-	public List<Customer> findByCustomers(int customerId);
+	//public List<Customer> findByCustomer(int customerId);
 
 
 	

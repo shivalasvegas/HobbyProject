@@ -11,5 +11,5 @@ import com.qa.hobbyproject.model.Booking;
 @Repository
 public interface BookingRepository extends JpaRepository<Booking, Integer> {
 
-	public List<Booking> findByBookings(int bookingID);
+	//public List<Booking> findByBookings(int bookingID);
 }
