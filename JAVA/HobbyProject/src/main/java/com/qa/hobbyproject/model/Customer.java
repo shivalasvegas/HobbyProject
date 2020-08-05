@@ -21,7 +21,7 @@ public class Customer {
 	private String customerAddress;
 	@Column(length=20, name="customer_phone")
 	private String customerPhone;
-	@Column(length=20, name="customer_email")
+	@Column(length=100, name="customer_email")
 	private String customerEmail;
 	@Column(length=15, name="customer_password")
 	private String customerPassword;

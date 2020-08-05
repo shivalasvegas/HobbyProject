@@ -28,6 +28,21 @@ public class Booking {
 	private String workshop;
 	@Column(precision=2)
 	private double price;
+	@Column(name="payment_type")
+	private String paymentType;
+	
+	public Booking() {
+		
+	}
+	
+	public Booking(Customer customer, String bookingDate, String workshop, String paymentType, double price) {
+		this.customer = customer;
+		this.bookingDate = bookingDate;
+		this.workshop = workshop;
+		this.paymentType = paymentType;
+		this.price = price;
+	}
+	
 	public int getBookingId() {
 		return bookingId;
 	}
@@ -51,6 +66,13 @@ public class Booking {
 	}
 	public void setWorkshop(String workshop) {
 		this.workshop = workshop;
+	}
+	
+	public String getPaymentType() {
+		return paymentType;
+	}
+	public void setPaymentType(String paymentType) {
+		this.paymentType = paymentType;
 	}
 	public double getPrice() {
 		return price;

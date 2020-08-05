@@ -22,6 +22,16 @@ public class CreditCard {
 	
 	@Column(length=20, name="card_number")
 	private String cardNumber;
+	
+	public CreditCard() {
+		
+	}
+	
+	public CreditCard(Customer customer, String cardNumber) {
+		this.customer = customer;
+		this.cardNumber = cardNumber;
+		
+	}
 
 	public int getCreaditCardId() {
 		return creaditCardId;
