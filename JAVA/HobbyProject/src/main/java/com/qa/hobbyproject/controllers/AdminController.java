@@ -11,25 +11,25 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.qa.hobbyproject.exceptions.IdNotFoundException;
-import com.qa.hobbyproject.model.CreditCard;
-import com.qa.hobbyproject.services.CreditCardService;
+import com.qa.hobbyproject.model.Admin;
+import com.qa.hobbyproject.services.AdminService;
 
 @RestController
-public class CreditCardController {
+public class AdminController {
 
 	@Autowired
-	CreditCardService service;
+	AdminService service;
 
 	@PostMapping("/createcard")
-	public String createCardRecord(@RequestBody CreditCard card) {
+	public String createCardRecord(@RequestBody Admin card) {
 		String message = this.service.createCard(card);
 
 		return message;
 	}
 
 	@GetMapping("/readallcards")
-	public List<CreditCard> readAllCardRecords() {
-		List<CreditCard> record = service.readAllCards();
+	public List<Admin> readAllCardRecords() {
+		List<Admin> record = service.readAllCards();
 
 		return record;
 	}

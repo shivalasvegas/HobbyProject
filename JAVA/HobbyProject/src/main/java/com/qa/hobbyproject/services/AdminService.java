@@ -6,44 +6,44 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.qa.hobbyproject.exceptions.IdNotFoundException;
-import com.qa.hobbyproject.model.CreditCard;
-import com.qa.hobbyproject.repositories.CreditCardRepository;
+import com.qa.hobbyproject.model.Admin;
+import com.qa.hobbyproject.repositories.AdminRepository;
 
 @Service
-public class CreditCardService {
+public class AdminService {
 	
 	@Autowired
-	CreditCardRepository cardRepo;
+	AdminRepository cardRepo;
 	
 	//Create
-	public String createCard(CreditCard card) {
+	public String createCard(Admin card) {
 		this.cardRepo.save(card);
 		return "Card record created";
 	}
 	
 	
 	//Read
-	public List<CreditCard> readAllCards() {
-		List<CreditCard> cardRecords = this.cardRepo.findAll();
+	public List<Admin> readAllCards() {
+		List<Admin> cardRecords = this.cardRepo.findAll();
 		return cardRecords;
 	
 	}
 	
 
-	public CreditCard readCard(int id) {
-	CreditCard card = this.cardRepo.findById(id).orElseThrow(IdNotFoundException::new);
+	public Admin readCard(int id) {
+	Admin card = this.cardRepo.findById(id).orElseThrow(IdNotFoundException::new);
 	return card;
 }
 		
 	
 	//Update
-	public CreditCard updateCard(CreditCard newCard, int id) {
-	CreditCard updateCard = readCard(id);
+	public Admin updateCard(Admin newCard, int id) {
+	Admin updateCard = readCard(id);
 
 	updateCard.setCustomer(newCard.getCustomer());
 	updateCard.setCardNumber(newCard.getCardNumber());
 	
-	CreditCard saved = this.cardRepo.save(updateCard);
+	Admin saved = this.cardRepo.save(updateCard);
 	return saved;
 }
 

@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="creditcards")
-public class CreditCard {
+public class Admin {
 	
 	@Id
 	@GeneratedValue
@@ -23,11 +23,11 @@ public class CreditCard {
 	@Column(length=20, name="card_number")
 	private String cardNumber;
 	
-	public CreditCard() {
+	public Admin() {
 		
 	}
 	
-	public CreditCard(Customer customer, String cardNumber) {
+	public Admin(Customer customer, String cardNumber) {
 		this.customer = customer;
 		this.cardNumber = cardNumber;
 		
