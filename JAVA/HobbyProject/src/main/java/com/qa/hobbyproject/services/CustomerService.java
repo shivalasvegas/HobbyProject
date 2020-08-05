@@ -40,11 +40,11 @@ public class CustomerService {
 	public Customer updateCustomer(Customer newCustomer, int id) {
 	Customer updateCustomer = readCustomer(id);
 
-	updateCustomer.setCustomerName(newCustomer.getCustomerName());
+	updateCustomer.setName(newCustomer.getName());
 	updateCustomer.setCustomerAddress(newCustomer.getCustomerAddress());
 	updateCustomer.setCustomerPhone(newCustomer.getCustomerPhone());
-	updateCustomer.setCustomerEmail(newCustomer.getCustomerEmail());
-	updateCustomer.setCustomerPassword(newCustomer.getCustomerPassword());
+	updateCustomer.setEmail(newCustomer.getEmail());
+	updateCustomer.setPassword(newCustomer.getPassword());
 
 	Customer saved = this.customerRepo.save(updateCustomer);
 	return saved;

@@ -1,14 +1,14 @@
 package com.qa.hobbyproject.model;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
 import javax.persistence.Table;
 
-@Entity
+@MappedSuperclass
 @Table(name="customers")
-public class Customer {
+public class Customer implements User{
 
 	@Id
 	@GeneratedValue
@@ -16,15 +16,15 @@ public class Customer {
 	private int customerId;
 	
 	@Column(length=50, name="customer_name")
-	private String customerName;
+	private String name;
 	@Column(length=100, name="customer_address")
-	private String customerAddress;
+	private String address;
 	@Column(length=20, name="customer_phone")
-	private String customerPhone;
+	private String phone;
 	@Column(length=100, name="customer_email")
-	private String customerEmail;
+	private String email;
 	@Column(length=15, name="customer_password")
-	private String customerPassword;
+	private String password;
 	
 	public Customer() {
 		
@@ -32,11 +32,11 @@ public class Customer {
 	
 	public Customer(String customerName, String customerAddress, String customerPhone, String customerEmail, String customerPassword) {
 
-		this.customerName = customerName;
-		this.customerAddress = customerAddress;
-		this.customerPhone = customerPhone;
-		this.customerEmail = customerEmail;
-		this.customerPassword = customerPassword;
+		this.name = customerName;
+		this.address = customerAddress;
+		this.phone = customerPhone;
+		this.email = customerEmail;
+		this.password = customerPassword;
 	}
 	
 	public int getCustomerId() {
@@ -45,35 +45,36 @@ public class Customer {
 	public void setCustomerId(int customerId) {
 		this.customerId = customerId;
 	}
-	public String getCustomerName() {
-		return customerName;
+	
+	public String getName() {
+		return this.name;
 	}
-	public void setCustomerName(String customerName) {
-		this.customerName = customerName;
+	public void setName(String customerName) {
+		this.name = customerName;
 	}
 	public String getCustomerAddress() {
-		return customerAddress;
+		return this.address;
 	}
 	public void setCustomerAddress(String customerAddress) {
-		this.customerAddress = customerAddress;
+		this.address = customerAddress;
 	}
 	public String getCustomerPhone() {
-		return customerPhone;
+		return this.phone;
 	}
 	public void setCustomerPhone(String customerPhone) {
-		this.customerPhone = customerPhone;
+		this.phone = customerPhone;
 	}
-	public String getCustomerEmail() {
-		return customerEmail;
+	public String getEmail() {
+		return this.email;
 	}
-	public void setCustomerEmail(String customerEmail) {
-		this.customerEmail = customerEmail;
+	public void setEmail(String customerEmail) {
+		this.email = customerEmail;
 	}
-	public String getCustomerPassword() {
-		return customerPassword;
+	public String getPassword() {
+		return this.password;
 	}
-	public void setCustomerPassword(String customerPassword) {
-		this.customerPassword = customerPassword;
+	public void setPassword(String customerPassword) {
+		this.password = customerPassword;
 	}
 	
 	

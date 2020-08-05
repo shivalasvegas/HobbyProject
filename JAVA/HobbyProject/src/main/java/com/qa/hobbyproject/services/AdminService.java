@@ -13,45 +13,46 @@ import com.qa.hobbyproject.repositories.AdminRepository;
 public class AdminService {
 	
 	@Autowired
-	AdminRepository cardRepo;
+	AdminRepository adminRepo;
 	
 	//Create
-	public String createCard(Admin card) {
-		this.cardRepo.save(card);
-		return "Card record created";
+	public String createAdmin(Admin admin) {
+		this.adminRepo.save(admin);
+		return "Admin record created";
 	}
 	
 	
 	//Read
-	public List<Admin> readAllCards() {
-		List<Admin> cardRecords = this.cardRepo.findAll();
-		return cardRecords;
+	public List<Admin> readAllAdmins() {
+		List<Admin> adminRecords = this.adminRepo.findAll();
+		return adminRecords;
 	
 	}
 	
 
-	public Admin readCard(int id) {
-	Admin card = this.cardRepo.findById(id).orElseThrow(IdNotFoundException::new);
-	return card;
+	public Admin readAdmin(int id) {
+	Admin admin = this.adminRepo.findById(id).orElseThrow(IdNotFoundException::new);
+	return admin;
 }
 		
 	
 	//Update
-	public Admin updateCard(Admin newCard, int id) {
-	Admin updateCard = readCard(id);
+	public Admin updateAdmin(Admin newAdmin, int id) {
+	Admin updateAdmin = readAdmin(id);
 
-	updateCard.setCustomer(newCard.getCustomer());
-	updateCard.setCardNumber(newCard.getCardNumber());
+	updateAdmin.setName(newAdmin.getName());
+	updateAdmin.setEmail(newAdmin.getEmail());
+	updateAdmin.setPassword(newAdmin.getPassword());
 	
-	Admin saved = this.cardRepo.save(updateCard);
+	Admin saved = this.adminRepo.save(updateAdmin);
 	return saved;
 }
 
 	
 	//Delete
-	public boolean deleteCard(int id) {
-		this.cardRepo.deleteById(id);
-		boolean deleted = !this.cardRepo.existsById(id);
+	public boolean deleteAdmin(int id) {
+		this.adminRepo.deleteById(id);
+		boolean deleted = !this.adminRepo.existsById(id);
 		return deleted;
 	}
 

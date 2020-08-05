@@ -11,11 +11,10 @@ public interface User {
 
 	public String getEmail();
 
-	public void setCustomerEmail(String email);
+	public void setEmail(String email);
 	
 	public String getPassword();
 	
-	public void setCustomerPassword(String password);
+	public void setPassword(String password);
 	
-
 }

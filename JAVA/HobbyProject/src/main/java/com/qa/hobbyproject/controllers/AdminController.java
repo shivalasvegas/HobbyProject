@@ -20,31 +20,31 @@ public class AdminController {
 	@Autowired
 	AdminService service;
 
-	@PostMapping("/createcard")
-	public String createCardRecord(@RequestBody Admin card) {
-		String message = this.service.createCard(card);
+	@PostMapping("/createadmin")
+	public String createAdminRecord(@RequestBody Admin admin) {
+		String message = this.service.createAdmin(admin);
 
 		return message;
 	}
 
-	@GetMapping("/readallcards")
-	public List<Admin> readAllCardRecords() {
-		List<Admin> record = service.readAllCards();
+	@GetMapping("/readalladmins")
+	public List<Admin> readAllAdminRecords() {
+		List<Admin> record = service.readAllAdmins();
 
 		return record;
 	}
 
-	// @PutMapping("/updatecard/{id}")
+	// @PutMapping("/updateadmin/{id}")
 
-	@DeleteMapping("/deletecard/{id}")
+	@DeleteMapping("/deleteadmin/{id}")
 
-	public String deleteCard(@PathVariable int id) throws IdNotFoundException {
-		boolean deleted = this.service.deleteCard(id);
+	public String deleteAdmin(@PathVariable int id) throws IdNotFoundException {
+		boolean deleted = this.service.deleteAdmin(id);
 
 		String message;
 		try {
 			if (deleted)
-				message = "Card deleted";
+				message = "Admin deleted";
 			else
 				message = "Id does not exist";
 		} catch (IdNotFoundException cardException) {

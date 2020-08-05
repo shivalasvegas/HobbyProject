@@ -1,61 +1,67 @@
 package com.qa.hobbyproject.model;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.MappedSuperclass;
 import javax.persistence.Table;
 
 
-@Entity
-@Table(name="creditcards")
-public class Admin {
+@MappedSuperclass
+@Table(name="admins")
+public class Admin implements User {
 	
 	@Id
 	@GeneratedValue
-	@Column(name="creditcard_id")
-	private int creaditCardId;
+	@Column(name="admin_id")
+	private int adminId;
 	
-	@OneToOne
-	private Customer customer;
+	@Column(length=50, name="admin_name")
+	private String name;
+	@Column(length=100, name="admin_email")
+	private String email;
+	@Column(length=15, name="admin_password")
+	private String password;
 	
-	@Column(length=20, name="card_number")
-	private String cardNumber;
-	
-	public Admin() {
+	public Admin(String adminName, String adminEmail, String adminPassword) {
+		this.name = adminName;
+		this.email = adminEmail;
+		this.password = adminPassword;
 		
 	}
-	
-	public Admin(Customer customer, String cardNumber) {
-		this.customer = customer;
-		this.cardNumber = cardNumber;
-		
+
+	public int getAdminId() {
+		return adminId;
 	}
 
-	public int getCreaditCardId() {
-		return creaditCardId;
+	public void setAdminId(int adminId) {
+		this.adminId = adminId;
 	}
 
-	public void setCreaditCardId(int creaditCardId) {
-		this.creaditCardId = creaditCardId;
+	public String getName() {
+		return name;
 	}
 
-	public Customer getCustomer() {
-		return customer;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public void setCustomer(Customer customer) {
-		this.customer = customer;
+	public String getEmail() {
+		return email;
 	}
 
-	public String getCardNumber() {
-		return cardNumber;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
-	public void setCardNumber(String cardNumber) {
-		this.cardNumber = cardNumber;
+	public String getPassword() {
+		return password;
 	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
 	
 	
 	
