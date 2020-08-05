@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.qa.hobbyproject.exceptions.CardNotFoundException;
+import com.qa.hobbyproject.exceptions.IdNotFoundException;
 import com.qa.hobbyproject.model.CreditCard;
 import com.qa.hobbyproject.services.CreditCardService;
 
@@ -38,7 +38,7 @@ public class CreditCardController {
 
 	@DeleteMapping("/deletecard/{id}")
 
-	public String deleteCard(@PathVariable int id) throws CardNotFoundException {
+	public String deleteCard(@PathVariable int id) throws IdNotFoundException {
 		boolean deleted = this.service.deleteCard(id);
 
 		String message;
@@ -47,7 +47,7 @@ public class CreditCardController {
 				message = "Card deleted";
 			else
 				message = "Id does not exist";
-		} catch (CardNotFoundException cardException) {
+		} catch (IdNotFoundException cardException) {
 			message = "Please enter another id";
 		}
 

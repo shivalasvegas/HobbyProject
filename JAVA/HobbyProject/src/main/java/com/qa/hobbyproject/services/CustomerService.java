@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.qa.hobbyproject.exceptions.CustomerNotFoundException;
+import com.qa.hobbyproject.exceptions.IdNotFoundException;
 import com.qa.hobbyproject.model.Customer;
 import com.qa.hobbyproject.repositories.CustomerRepository;
 
@@ -31,7 +31,7 @@ public class CustomerService {
 	
 
 	public Customer readCustomer(int id) {
-	Customer customer = this.customerRepo.findById(id).orElseThrow(CustomerNotFoundException::new);
+	Customer customer = this.customerRepo.findById(id).orElseThrow(IdNotFoundException::new);
 	return customer;
 }
 		

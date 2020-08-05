@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.qa.hobbyproject.exceptions.CustomerNotFoundException;
+import com.qa.hobbyproject.exceptions.IdNotFoundException;
 import com.qa.hobbyproject.model.Customer;
 import com.qa.hobbyproject.services.CustomerService;
 
@@ -38,7 +38,7 @@ public class CustomerController {
 	
 	@DeleteMapping("/deletecustomer/{id}")
 
-public String deleteCustomer(@PathVariable int id) throws CustomerNotFoundException {
+public String deleteCustomer(@PathVariable int id) throws IdNotFoundException {
 boolean deleted = this.service.deleteCustomer(id);
   
 	String message;
@@ -46,7 +46,7 @@ boolean deleted = this.service.deleteCustomer(id);
 		if (deleted) message = "Customer deleted";	
 		else message = "Id does not exist";
 	}
-	catch(CustomerNotFoundException customerException){
+	catch(IdNotFoundException customerException){
 		message = "Please enter another id";	
 	}
 	

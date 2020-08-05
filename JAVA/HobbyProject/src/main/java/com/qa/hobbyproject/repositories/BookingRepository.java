@@ -1,6 +1,6 @@
 package com.qa.hobbyproject.repositories;
 
-import java.util.List;
+//import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
