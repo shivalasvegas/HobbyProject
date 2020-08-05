@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.qa.hobbyproject.exceptions.CardNotFoundException;
 import com.qa.hobbyproject.model.CreditCard;
 import com.qa.hobbyproject.repositories.CreditCardRepository;
 
