@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="customers")
-public class Customer implements User{
+public class Customer extends User{
 
 	@Id
 	@GeneratedValue
@@ -46,12 +46,6 @@ public class Customer implements User{
 		this.customerId = customerId;
 	}
 	
-	public String getName() {
-		return this.name;
-	}
-	public void setName(String customerName) {
-		this.name = customerName;
-	}
 	public String getCustomerAddress() {
 		return this.address;
 	}
@@ -63,18 +57,6 @@ public class Customer implements User{
 	}
 	public void setCustomerPhone(String customerPhone) {
 		this.phone = customerPhone;
-	}
-	public String getEmail() {
-		return this.email;
-	}
-	public void setEmail(String customerEmail) {
-		this.email = customerEmail;
-	}
-	public String getPassword() {
-		return this.password;
-	}
-	public void setPassword(String customerPassword) {
-		this.password = customerPassword;
 	}
 	
 	
