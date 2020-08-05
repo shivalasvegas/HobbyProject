@@ -1,13 +1,12 @@
 package com.qa.hobbyproject.model;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
 import javax.persistence.Table;
 
-
-@MappedSuperclass
+@Entity
 @Table(name="admins")
 public class Admin implements User {
 	
@@ -30,11 +29,11 @@ public class Admin implements User {
 		
 	}
 
-	public int getAdminId() {
+	public int getId() {
 		return adminId;
 	}
 
-	public void setAdminId(int adminId) {
+	public void setId(int adminId) {
 		this.adminId = adminId;
 	}
 

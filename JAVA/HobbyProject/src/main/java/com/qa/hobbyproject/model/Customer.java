@@ -1,12 +1,12 @@
 package com.qa.hobbyproject.model;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
 import javax.persistence.Table;
 
-@MappedSuperclass
+@Entity
 @Table(name="customers")
 public class Customer implements User{
 
@@ -39,10 +39,10 @@ public class Customer implements User{
 		this.password = customerPassword;
 	}
 	
-	public int getCustomerId() {
+	public int getId() {
 		return customerId;
 	}
-	public void setCustomerId(int customerId) {
+	public void setId(int customerId) {
 		this.customerId = customerId;
 	}
 	
