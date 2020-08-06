@@ -23,6 +23,7 @@ public class Admin extends User{
 	private String password;
 	
 	public Admin(String adminName, String adminEmail, String adminPassword) {
+		super();
 		this.name = adminName;
 		this.email = adminEmail;
 		this.password = adminPassword;

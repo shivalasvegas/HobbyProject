@@ -31,7 +31,7 @@ public class Customer extends User{
 	}
 	
 	public Customer(String customerName, String customerAddress, String customerPhone, String customerEmail, String customerPassword) {
-
+		super();
 		this.name = customerName;
 		this.address = customerAddress;
 		this.phone = customerPhone;
@@ -58,8 +58,6 @@ public class Customer extends User{
 	public void setCustomerPhone(String customerPhone) {
 		this.phone = customerPhone;
 	}
-	
-	
 	
 	
 }

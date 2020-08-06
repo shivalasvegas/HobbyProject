@@ -1,9 +1,11 @@
 package com.qa.hobbyproject.model;
 
-import javax.persistence.Embeddable;
+//import javax.persistence.Embeddable;
+//import javax.persistence.Entity;
+import javax.persistence.MappedSuperclass;
 
-@Embeddable
-public class User {
+@MappedSuperclass
+abstract class User {
 	
 	private String name;
 	private String email;
