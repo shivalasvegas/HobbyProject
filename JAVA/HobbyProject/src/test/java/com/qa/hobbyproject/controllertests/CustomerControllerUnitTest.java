@@ -49,8 +49,8 @@ public class CustomerControllerUnitTest {
 		this.testCustomer = new Customer("Arthur Dent", "155 Cottinghom Lane", "01273567456", "adent@earth.com", "123345");
 		
 		this.testCustomerWithID = this.repo.save(this.testCustomer);
-		this.id = this.testCustomerWithID.getId();
-		this.testCustomerWithID.setId(id);
+		this.id = this.testCustomerWithID.getCustomerId();
+		this.testCustomerWithID.setCustomerId(id);
 		
 		this.listCustomer.add(testCustomerWithID);
 	}
@@ -58,7 +58,7 @@ public class CustomerControllerUnitTest {
 	@Test
 	public void testCreate() throws JsonProcessingException, Exception{
 		MockHttpServletRequestBuilder mockRequest = 
-				MockMvcRequestBuilders.request(HttpMethod.POST, "/customer/create");
+				MockMvcRequestBuilders.request(HttpMethod.POST, "/customers/createcustomer");
 		
 		mockRequest.contentType(MediaType.APPLICATION_JSON)
 			.content(this.mapper.writeValueAsString(testCustomerWithID))
@@ -86,7 +86,7 @@ public class CustomerControllerUnitTest {
 	@Test
 	public void testReadAll() throws JsonProcessingException, Exception {
 		MockHttpServletRequestBuilder mockRequest = 
-				MockMvcRequestBuilders.request(HttpMethod.GET, "/customer/readAll");
+				MockMvcRequestBuilders.request(HttpMethod.GET, "/customers/readAllCustomer");
 		
 		mockRequest.contentType(MediaType.APPLICATION_JSON)
 			.content(this.mapper.writeValueAsString(listCustomer))
@@ -116,7 +116,7 @@ public class CustomerControllerUnitTest {
 	@Test
 	public void testDelete() throws JsonProcessingException, Exception {
 		MockHttpServletRequestBuilder mockRequest = 
-				MockMvcRequestBuilders.request(HttpMethod.DELETE, "/customer/delete/1" + testCustomerWithID.getId());
+				MockMvcRequestBuilders.request(HttpMethod.DELETE, "/customers/deletecustomer/1" + testCustomerWithID.getCustomerId());
 		
 		mockRequest.contentType(MediaType.APPLICATION_JSON)
 			.content(this.mapper.writeValueAsString(testCustomerWithID))

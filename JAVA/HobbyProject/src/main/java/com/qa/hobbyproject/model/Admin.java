@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="admins")
-public class Admin implements User{
+public class Admin {
 	
 	@Id
 	@GeneratedValue
@@ -16,23 +16,17 @@ public class Admin implements User{
 	private int adminId;
 	
 	@Column(length=50, name="admin_name")
-	private String name;
-	@Column(length=100, name="admin_address")
-	private String address;
-	@Column(length=20, name="admin_phone")
-	private String phone;
+	private String adminName;
 	@Column(length=100, name="admin_email")
-	private String email;
+	private String adminEmail;
 	@Column(length=15, name="admin_password")
-	private String password;
+	private String adminPassword;
 	
-	public Admin(String adminName, String adminAddress, String adminPhone, String adminEmail, String adminPassword) {
+	public Admin(String adminName, String adminEmail, String adminPassword) {
 		
-		this.name = adminName;
-		this.address = adminAddress;
-		this.phone = adminPhone;
-		this.email = adminEmail;
-		this.password = adminPassword;
+		this.adminName = adminName;
+		this.adminEmail = adminEmail;
+		this.adminPassword = adminPassword;
 		
 	}
 
@@ -43,68 +37,43 @@ public class Admin implements User{
 	public void setId(int adminId) {
 		this.adminId = adminId;
 	}
-
 	
-
-	@Override
 	public String getName() {
 	
-		return this.name;
+		return this.adminName;
 	}
 
-	@Override
 	public void setName(String name) {
-	
+	this.adminName = name;
 		
 	}
 
-	@Override
+
 	public String getEmail() {
 		
-		return this.email;
+		return this.adminEmail;
 	}
 
-	@Override
+
 	public void setEmail(String email) {
 		
-		
+		this.adminEmail = email;
 	}
 
-	@Override
+	
 	public String getPassword() {
 		
-		return this.password;
+		return this.adminPassword;
 	}
 
-	@Override
+
 	public void setPassword(String password) {
-		
-		
-	}
-
-	@Override
-	public String getAddress() {
-		
-		return null;
-	}
-
-	@Override
-	public void setAddress(String address) {
-		
+		this.adminPassword = password;
 		
 	}
 
-	@Override
-	public String getPhone() {
-		
-		return null;
-	}
-
-	@Override
-	public void setPhone(String phone) {
 	
-	}
-	
+
 
 	
 }

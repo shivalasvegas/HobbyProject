@@ -8,23 +8,22 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="customers")
-public class Customer implements User{
+public class Customer {
 
 	@Id
 	@GeneratedValue
 	@Column(name="customer_id")
 	private int customerId;
-	
 	@Column(length=50, name="customer_name")
-	private String name;
+	private String customerName;
 	@Column(length=100, name="customer_address")
-	private String address;
+	private String customerAddress;
 	@Column(length=20, name="customer_phone")
-	private String phone;
+	private String customerPhone;
 	@Column(length=100, name="customer_email")
-	private String email;
+	private String customerEmail;
 	@Column(length=15, name="customer_password")
-	private String password;
+	private String customerPassword;
 	
 	public Customer() {
 		super();
@@ -32,72 +31,72 @@ public class Customer implements User{
 	
 	public Customer(String customerName, String customerAddress, String customerPhone, String customerEmail, String customerPassword) {
 		
-		this.name = customerName;
-		this.address = customerAddress;
-		this.phone = customerPhone;
-		this.email = customerEmail;
-		this.password = customerPassword;
+		this.customerName = customerName;
+		this.customerAddress = customerAddress;
+		this.customerPhone = customerPhone;
+		this.customerEmail = customerEmail;
+		this.customerPassword = customerPassword;
 	}
 	
-	public int getId() {
+	public int getCustomerId() {
 		return customerId;
 	}
-	public void setId(int customerId) {
+	public void setCustomerId(int customerId) {
 		this.customerId = customerId;
 	}
 	
-	@Override
-	public String getAddress() {
-		return this.address;
+	
+	public String getCustomerAddress() {
+		return this.customerAddress;
 	}
 	
-	@Override
-	public void setAddress(String customerAddress) {
-		this.address = customerAddress;
+	
+	public void setCustomerAddress(String customerAddress) {
+		this.customerAddress = customerAddress;
 	}
 	
-	@Override
-	public String getPhone() {
-		return this.phone;
-	}
-	public void setPhone(String customerPhone) {
-		this.phone = customerPhone;
-	}
-
-	@Override
-	public String getName() {
 	
-		return this.name;
+	public String getCustomerPhone() {
+		return this.customerPhone;
+	}
+	public void setCustomerPhone(String customerPhone) {
+		this.customerPhone = customerPhone;
 	}
 
-	@Override
-	public void setName(String name) {
 	
+	public String getCustomerName() {
+	
+		return this.customerName;
+	}
+
+	
+	public void setCustomerName(String name) {
+	 this.customerName = name;
 		
 	}
 
-	@Override
-	public String getEmail() {
+	
+	public String getCustomerEmail() {
 		
-		return this.email;
+		return this.customerEmail;
 	}
 
-	@Override
-	public void setEmail(String email) {
-		
+
+	public void setCustomerEmail(String email) {
+		this.customerEmail = email;
 		
 	}
 
-	@Override
-	public String getPassword() {
+	
+	public String getCustomerPassword() {
 		
-		return this.password;
+		return this.customerPassword;
 	}
 
-	@Override
-	public void setPassword(String password) {
+
+	public void setCustomerPassword(String password) {
 		
-		
+		this.customerPassword = password;
 	}
 	
 	
