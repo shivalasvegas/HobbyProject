@@ -7,19 +7,19 @@
 }
 
 {
-"customerName":"Arthur Dent",
-"customerAddress":"155 Country Lane, Cottingham",
-"customerPhone":"01273 566755",
-"customerEmail":"adent@solarsystem.com",
-"customerPassword":"towelsrus"
+"customerName":"Ford Prefect",
+"customerAddress":"A spaceship somewhere",
+"customerPhone":"111222333",
+"customerEmail":"fordperfect@space.com",
+"customerPassword":"translatethis"
 }
 
 {
-"customerName":"Arthur Dent",
-"customerAddress":"155 Country Lane, Cottingham",
-"customerPhone":"01273 566755",
-"customerEmail":"adent@solarsystem.com",
-"customerPassword":"towelsrus"
+"customerName":"Zaphod Beeblebrox",
+"customerAddress":"The Heart of Gold",
+"customerPhone":"00001",
+"customerEmail":"zaphee@hog.com",
+"customerPassword":"tootoot"
 }
 
 {

@@ -41,8 +41,8 @@ public class CustomerService {
 	Customer updateCustomer = readCustomer(id);
 
 	updateCustomer.setName(newCustomer.getName());
-	updateCustomer.setCustomerAddress(newCustomer.getCustomerAddress());
-	updateCustomer.setCustomerPhone(newCustomer.getCustomerPhone());
+	updateCustomer.setAddress(newCustomer.getAddress());
+	updateCustomer.setPhone(newCustomer.getPhone());
 	updateCustomer.setEmail(newCustomer.getEmail());
 	updateCustomer.setPassword(newCustomer.getPassword());
 

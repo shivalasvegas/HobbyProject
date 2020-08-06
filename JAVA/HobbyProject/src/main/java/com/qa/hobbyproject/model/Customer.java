@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="customers")
-public class Customer extends User{
+public class Customer implements User{
 
 	@Id
 	@GeneratedValue
@@ -27,11 +27,11 @@ public class Customer extends User{
 	private String password;
 	
 	public Customer() {
-		
+		super();
 	}
 	
 	public Customer(String customerName, String customerAddress, String customerPhone, String customerEmail, String customerPassword) {
-		super();
+		
 		this.name = customerName;
 		this.address = customerAddress;
 		this.phone = customerPhone;
@@ -46,17 +46,58 @@ public class Customer extends User{
 		this.customerId = customerId;
 	}
 	
-	public String getCustomerAddress() {
+	@Override
+	public String getAddress() {
 		return this.address;
 	}
-	public void setCustomerAddress(String customerAddress) {
+	
+	@Override
+	public void setAddress(String customerAddress) {
 		this.address = customerAddress;
 	}
-	public String getCustomerPhone() {
+	
+	@Override
+	public String getPhone() {
 		return this.phone;
 	}
-	public void setCustomerPhone(String customerPhone) {
+	public void setPhone(String customerPhone) {
 		this.phone = customerPhone;
+	}
+
+	@Override
+	public String getName() {
+	
+		return this.name;
+	}
+
+	@Override
+	public void setName(String name) {
+	
+		
+	}
+
+	@Override
+	public String getEmail() {
+		
+		return this.email;
+	}
+
+	@Override
+	public void setEmail(String email) {
+		
+		
+	}
+
+	@Override
+	public String getPassword() {
+		
+		return this.password;
+	}
+
+	@Override
+	public void setPassword(String password) {
+		
+		
 	}
 	
 	
