@@ -21,8 +21,14 @@ public class CustomerService {
 		return "Customer record created";
 	}
 	
-	
 	//Read
+	public Customer readCustomer(int id) {
+		Customer customer = this.customerRepo.findById(id).orElseThrow(IdNotFoundException::new);
+		return customer;
+	}
+	
+	
+
 	public List<Customer> readAllCustomers() {
 		List<Customer> customerRecords = this.customerRepo.findAll();
 		return customerRecords;
@@ -30,12 +36,6 @@ public class CustomerService {
 	}
 	
 
-	public Customer readCustomer(int id) {
-	Customer customer = this.customerRepo.findById(id).orElseThrow(IdNotFoundException::new);
-	return customer;
-}
-		
-	
 	//Update
 	public Customer updateCustomer(Customer newCustomer, int id) {
 	Customer updateCustomer = readCustomer(id);

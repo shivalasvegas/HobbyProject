@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import org.springframework.web.bind.annotation.RestController;
@@ -18,41 +19,52 @@ import com.qa.hobbyproject.services.CustomerService;
 @RestController
 
 public class CustomerController {
-	
+
 	@Autowired
 	CustomerService service;
-	
+
 	@PostMapping("/createcustomer")
 	public String createCustomerRecord(@RequestBody Customer customer) {
 		String message = this.service.createCustomer(customer);
 
 		return message;
 	}
-	
+
+	@GetMapping("/readcustomer/{id}")
+	public Customer readCustomerRecord(@PathVariable int id) {
+		Customer record = this.service.readCustomer(id);
+		return record;
+	}
+
 	@GetMapping("/readallcustomers")
 	public List<Customer> readAllCustomerRecords() {
 		List<Customer> record = service.readAllCustomers();
-		
-		return record;	
+
+		return record;
 	}
-	
-	//@PutMapping("/updatcustomer/{id}")
-	
+
+	@PutMapping("/updatcustomer/{id}")
+	public Customer updateCustomerRecord(@RequestBody Customer newCustomer, @PathVariable int id) {
+		Customer record = service.updateCustomer(newCustomer, id);
+		return record;
+	}
+
 	@DeleteMapping("/deletecustomer/{id}")
 
-public String deleteCustomer(@PathVariable int id) throws IdNotFoundException {
-boolean deleted = this.service.deleteCustomer(id);
-  
-	String message;
-	try {
-		if (deleted) message = "Customer deleted";	
-		else message = "Id does not exist";
+	public String deleteCustomerRecord(@PathVariable int id) throws IdNotFoundException {
+		boolean deleted = this.service.deleteCustomer(id);
+
+		String message;
+		try {
+			if (deleted)
+				message = "Customer deleted";
+			else
+				message = "Id does not exist";
+		} catch (IdNotFoundException customerException) {
+			message = "Please enter another id";
+		}
+
+		return message;
 	}
-	catch(IdNotFoundException customerException){
-		message = "Please enter another id";	
-	}
-	
-	return message; 
-}
 
 }

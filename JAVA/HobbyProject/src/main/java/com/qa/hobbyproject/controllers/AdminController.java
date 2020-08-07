@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -27,6 +28,12 @@ public class AdminController {
 		return message;
 	}
 
+	@GetMapping("/readadmin/{id}")
+	public Admin readAdmin(@PathVariable int id) {
+		Admin record = this.service.readAdmin(id);
+		return record;
+	}
+	
 	@GetMapping("/readalladmins")
 	public List<Admin> readAllAdminRecords() {
 		List<Admin> record = service.readAllAdmins();
@@ -34,7 +41,11 @@ public class AdminController {
 		return record;
 	}
 
-	// @PutMapping("/updateadmin/{id}")
+	@PutMapping("/updateadmin/{id}")
+	public Admin updateAdminRecord(@RequestBody Admin newAdmin, @PathVariable int id) {
+		Admin record = service.updateAdmin(newAdmin, id);
+		return record;
+	}
 
 	@DeleteMapping("/deleteadmin/{id}")
 
