@@ -21,7 +21,7 @@ import com.qa.hobbyproject.services.CustomerService;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class CustomerServiceTest {
+public class CustomerServiceUnitTest {
 	@MockBean
 	private CustomerRepository repo;
 
