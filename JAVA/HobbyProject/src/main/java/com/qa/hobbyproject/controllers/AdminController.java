@@ -29,7 +29,7 @@ public class AdminController {
 	}
 
 	@GetMapping("/readadmin/{id}")
-	public Admin readAdmin(@PathVariable int id) {
+	public Admin readAdminRecord(@PathVariable int id) {
 		Admin record = this.service.readAdmin(id);
 		return record;
 	}
@@ -49,7 +49,7 @@ public class AdminController {
 
 	@DeleteMapping("/deleteadmin/{id}")
 
-	public String deleteAdmin(@PathVariable int id) throws IdNotFoundException {
+	public String deleteAdminRecord(@PathVariable int id) throws IdNotFoundException {
 		boolean deleted = this.service.deleteAdmin(id);
 
 		String message;

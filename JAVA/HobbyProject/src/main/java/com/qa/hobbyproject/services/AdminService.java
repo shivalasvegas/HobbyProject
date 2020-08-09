@@ -40,9 +40,9 @@ public class AdminService {
 	public Admin updateAdmin(Admin newAdmin, int id) {
 	Admin updateAdmin = readAdmin(id);
 
-	updateAdmin.setName(newAdmin.getName());
-	updateAdmin.setEmail(newAdmin.getEmail());
-	updateAdmin.setPassword(newAdmin.getPassword());
+	updateAdmin.setAdminName(newAdmin.getAdminName());
+	updateAdmin.setAdminEmail(newAdmin.getAdminEmail());
+	updateAdmin.setAdminPassword(newAdmin.getAdminPassword());
 	
 	Admin saved = this.adminRepo.save(updateAdmin);
 	return saved;

@@ -30,48 +30,39 @@ public class Admin {
 		
 	}
 
-	public int getId() {
+	public int getAdminId() {
 		return adminId;
 	}
 
-	public void setId(int adminId) {
+	public void setAdminId(int adminId) {
 		this.adminId = adminId;
 	}
+
+	public String getAdminName() {
+		return adminName;
+	}
+
+	public void setAdminName(String adminName) {
+		this.adminName = adminName;
+	}
+
+	public String getAdminEmail() {
+		return adminEmail;
+	}
+
+	public void setAdminEmail(String adminEmail) {
+		this.adminEmail = adminEmail;
+	}
+
+	public String getAdminPassword() {
+		return adminPassword;
+	}
+
+	public void setAdminPassword(String adminPassword) {
+		this.adminPassword = adminPassword;
+	}
+
 	
-	public String getName() {
-	
-		return this.adminName;
-	}
-
-	public void setName(String name) {
-	this.adminName = name;
-		
-	}
-
-
-	public String getEmail() {
-		
-		return this.adminEmail;
-	}
-
-
-	public void setEmail(String email) {
-		
-		this.adminEmail = email;
-	}
-
-	
-	public String getPassword() {
-		
-		return this.adminPassword;
-	}
-
-
-	public void setPassword(String password) {
-		this.adminPassword = password;
-		
-	}
-
 	
 
 
