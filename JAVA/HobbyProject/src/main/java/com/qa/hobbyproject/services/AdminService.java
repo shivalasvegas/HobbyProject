@@ -1,6 +1,7 @@
 package com.qa.hobbyproject.services;
 
 import java.util.List;
+import java.util.logging.Logger;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,50 +12,54 @@ import com.qa.hobbyproject.repositories.AdminRepository;
 
 @Service
 public class AdminService {
+
+	private final static Logger LOGGER = Logger.getLogger(Logger.class.getName());
 	
 	@Autowired
 	AdminRepository adminRepo;
-	
-	//Create
+
+	// Create
 	public String createAdmin(Admin admin) {
 		this.adminRepo.save(admin);
 		return "Admin record created";
 	}
-	
-	
-	//Read
+
+	// Read
+	public Admin readAdmin(int id) {
+		Admin admin = this.adminRepo.findById(id).orElseThrow(IdNotFoundException::new);
+		LOGGER.info("Read Admin with id: " + admin.getAdminId()); 
+		return admin;
+	}
+
 	public List<Admin> readAllAdmins() {
 		List<Admin> adminRecords = this.adminRepo.findAll();
+		LOGGER.info("Read Customers"); 
 		return adminRecords;
-	
+
 	}
-	
 
-	public Admin readAdmin(int id) {
-	Admin admin = this.adminRepo.findById(id).orElseThrow(IdNotFoundException::new);
-	return admin;
-}
+	// Update
+	public Admin updateAdmin(Admin updatedAdmin, int id) {
+		Admin existingAdmin = this.adminRepo.findById(id).orElseThrow(IdNotFoundException::new);
+
+		existingAdmin.setAdminName(updatedAdmin.getAdminName());
+		existingAdmin.setAdminEmail(updatedAdmin.getAdminEmail());
+		existingAdmin.setAdminPassword(updatedAdmin.getAdminPassword());
 		
-	
-	//Update
-	public Admin updateAdmin(Admin newAdmin, int id) {
-	Admin updateAdmin = readAdmin(id);
+		Admin saved = this.adminRepo.save(existingAdmin);
+		LOGGER.info("Uodated admin with id: " + existingAdmin.getAdminId());
+		return saved;
+	}
 
-	updateAdmin.setAdminName(newAdmin.getAdminName());
-	updateAdmin.setAdminEmail(newAdmin.getAdminEmail());
-	updateAdmin.setAdminPassword(newAdmin.getAdminPassword());
-	
-	Admin saved = this.adminRepo.save(updateAdmin);
-	return saved;
-}
-
-	
-	//Delete
+	// Delete
 	public boolean deleteAdmin(int id) {
+		Admin admin = this.adminRepo.findById(id).orElseThrow(IdNotFoundException::new);
+		LOGGER.info("Deleting admin with id: " + admin.getAdminId());
+		
 		this.adminRepo.deleteById(id);
 		boolean deleted = !this.adminRepo.existsById(id);
+		LOGGER.info("Admin deleted");
 		return deleted;
 	}
-
 
 }

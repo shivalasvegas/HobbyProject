@@ -22,6 +22,10 @@ public class Admin {
 	@Column(length=15, name="admin_password")
 	private String adminPassword;
 	
+	public Admin() {
+		
+	}
+	
 	public Admin(String adminName, String adminEmail, String adminPassword) {
 		
 		this.adminName = adminName;
