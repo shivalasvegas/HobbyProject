@@ -98,6 +98,15 @@ public class Customer {
 		
 		this.customerPassword = password;
 	}
+
+	@Override
+	public String toString() {
+		return "Customer [customerId=" + customerId + ", customerName=" + customerName + ", customerAddress="
+				+ customerAddress + ", customerPhone=" + customerPhone + ", customerEmail=" + customerEmail
+				+ ", customerPassword=" + customerPassword + "]";
+	}
+	
+	
 	
 	
 }
