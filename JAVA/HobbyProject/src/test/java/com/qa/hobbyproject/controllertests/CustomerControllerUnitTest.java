@@ -77,6 +77,7 @@ public class CustomerControllerUnitTest {
 	@Test
 	public void testDelete_deleteCustomerRecord() {
 		when(this.service.deleteCustomer(this.id)).thenReturn(true);
+		
 		String message1 = this.controller.deleteCustomerRecord(this.id);
 		String message2 = this.controller.deleteCustomerRecord(12);
 		boolean deleted = message1.equals("Customer deleted");
