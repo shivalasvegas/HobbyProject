@@ -25,7 +25,7 @@
         }
       }
     </style>
-    <title>Home</title>
+    <title>Admin login</title>
   </head>
   <body>
     <header>
@@ -64,47 +64,35 @@
 
     <main role="main">
       
-      <form class="form-signin">
-        <img class="mb-4" src="../assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+      <form class="form-signin" method="POST" action="adminportal.html">
+        <!-- <img class="mb-4" src="../assets/brand/bootstrap-solid.svg" alt="" width="72" height="72"> -->
         <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
         <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+        <input type="email" name="userid" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
         <br>
         <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        <input type="password" name="userpwd" id="inputPassword" class="form-control" placeholder="Password" required>
         <div class="checkbox mb-3">
           <label>
             <input type="checkbox" value="remember-me"> Remember me
           </label>
         </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" onclick="validate(this.form)">Sign in</button>
         <p class="mt-5 mb-3 text-muted">&copy; 2017-2020</p>
       </form>  
-          
-        
-    
-      
-         
-    
-    
-       
-       
-    
-        
-    
-      
 
     </main>
 
     <footer class="text-muted">
       <div class="container">
         <p class="float-right">
-          <a href="adminLogin.html">Admin Login</a>
+          <a href="adminlogin.html">Admin Login</a>
         </p>
         
       </div>
     </footer>
     <!-- Optional JavaScript -->
+    <script src="/js/adminlogin.js"></script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
