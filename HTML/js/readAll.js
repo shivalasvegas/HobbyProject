@@ -1,6 +1,6 @@
 
-function readAll(){
-fetch('http://localhost:8003/readall')
+function readAllCustomers(){
+fetch('http://localhost:8003/readallcustomers')
   .then(
     function(response) {
       if (response.status !== 200) {
@@ -60,12 +60,12 @@ fetch('http://localhost:8003/readall')
               }
               let operation =row.insertCell()
               let aTag = document.createElement("a");
-              aTag.href = `http://localhost:8003/update/${element.salesId}`
+              aTag.href = `http://localhost:8003/updatecustomer/${element.id}`
               aTag.innerHTML = "Update"
               operation.appendChild(aTag)
               let operation1 =row.insertCell()
               let aTagupdate = document.createElement("a");
-              aTagupdate.href = `http://localhost:8003/delete/${element.salesId}`
+              aTagupdate.href = `http://localhost:8003/deletecustomer/${element.id}`
               aTagupdate.innerHTML = "Delete"
               operation1.appendChild(aTagupdate)
             }
