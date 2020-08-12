@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="/CSS/form-validation.css">
+    <link rel="stylesheet" href="/css/form-validation.css">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <style>
@@ -133,7 +133,7 @@
             <div class="col-md-8 order-md-1">
               <h4 class="mb-3">New customer details</h4>
 
-              <form class="needs-validation" novalidate>
+              <form class="needs-validation" method="POST" id="formcustomercreate"novalidate>
                 <div class="row">
                   <div class="col-md-6 mb-3">
                     <label for="firstName">Name</label>
@@ -158,40 +158,54 @@
                     Please enter a valid email address.
                   </div>
                 </div>
+
+                <div class="mb-3">
+                  <label for="password">Password</label>
+                  <input type="text" class="form-control" id="password">
+                  <div class="invalid-feedback">
+                    Please enter a valid password.
+                  </div>
+                </div>
         
                 <div class="mb-3">
                   <label for="address">Address</label>
-                  <input type="text" class="form-control" id="address" placeholder="155 Cottingham Lane" required>
+                  <input type="text" class="form-control" id="address" placeholder="155 Country Lane" required>
                   <div class="invalid-feedback">
                     Please enter address.
                   </div>
                 </div>
+                <div class="mb-3">
+                  <label for="phone">Phone Number</label>
+                  <input type="text" class="form-control" id="phone" placeholder="01273 422342" required>
+                  <div class="invalid-feedback">
+                    Please enter phone number.
+                  </div>
+                </div>
+
                 <div class="row">
                     <div class="col-md-6 mb-3">
                     
-                        <button class="btn btn-primary btn-lg btn-block" type="submit">Create</button>
+                        <button class="btn btn-primary btn-lg btn-block" type="submit">Submit</button>
                     </div>
                 </div>
                 <br>
+              </form>
+              <form class="formReadCustomers" method="GET" id="formReadCustomers">
                 <div class="row">
                     <div class="col-md-6 mb-3">
-                    
-                        <button class="btn btn-primary btn-lg btn-block" type="" id="readCustomers" onclick="readAllCustomers()">View Customers</button>
+                        <button class="btn btn-primary btn-lg btn-block" type="button" id="readCustomers" onClick="readAllCustomers()">View Customers</button>
                     </div>
                 </div>
-                <div id=readID>
 
-                </div>
-        
-                <table class="table table-hover">
-        
-                </table>
+                <div id=readID></div>
+                <table class="table table-hover"></table>
 
-              </form>
+                </form>
 
             </div>
-          </div>
-          </div>
+
+        </div>
+        </div>
 
     </main>
 
@@ -200,15 +214,16 @@
         <p class="float-right">
           <a href="#">Back to top</a>
         </p>
-        
       </div>
     </footer>
+
     <!-- Optional JavaScript -->
-    <script src="/JS/readAll.js"></script>
+    <script src="/js/readAllCustomers.js"></script>
+    <script src="/js/form-validation.js"></script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    <script src="form-validation.js"></script>
+    
 </body>
 </html>

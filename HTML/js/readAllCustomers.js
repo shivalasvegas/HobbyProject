@@ -1,8 +1,11 @@
 
+//https://cors-anywhere.herokuapp.com/
 function readAllCustomers(){
 fetch('http://localhost:8003/readallcustomers')
   .then(
+    
     function(response) {
+        
       if (response.status !== 200) {
         console.log('Looks like there was a problem. Status Code: ' +
           response.status);
