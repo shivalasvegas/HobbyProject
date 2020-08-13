@@ -133,11 +133,17 @@
             <div class="col-md-8 order-md-1">
               <h4 class="mb-3">New customer details</h4>
 
-              <form class="needs-validation" method="POST" id="formcustomercreate"novalidate>
+              <form class="needs-validation" method="POST" id="formCreateCustomer" novalidate>
                 <div class="row">
                   <div class="col-md-6 mb-3">
-                    <label for="firstName">Name</label>
-                    <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+                    <label for="name">Name</label>
+                    <input 
+                      class="form-control" 
+                      type="text" 
+                      id="name" 
+                      name="customerName"
+                      autocomplete="off"
+                      required>
                     <div class="invalid-feedback">
                       Valid name is required.
                     </div>
@@ -150,10 +156,44 @@
                     </div> -->
                   </div>
                 </div>
-        
+                <div class="mb-3">
+                  <label for="address">Address</label>
+                  <input 
+                    class="form-control" 
+                    type="text"
+                    id="address" 
+                    name="customerAddress" 
+                    placeholder="155 Country Lane" 
+                    autocomplete="off"
+                    required>
+                  <div class="invalid-feedback">
+                    Please enter address.
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="phone">Phone Number</label>
+                  <input 
+                    class="form-control" 
+                    type="text" 
+                    id="phone" 
+                    name="customerPhone" 
+                    placeholder="01273422342" 
+                    autocomplete="off"
+                    required>
+                  <div class="invalid-feedback">
+                    Please enter phone number.
+                  </div>
+                </div>
                 <div class="mb-3">
                   <label for="email">Email/Username</label>
-                  <input type="email" class="form-control" id="email" placeholder="you@example.com">
+                  <input 
+                    class="form-control" 
+                    type="email" 
+                    id="email" 
+                    name="customerEmail" 
+                    placeholder="you@example.com" 
+                    autocomplete="off"
+                    required>
                   <div class="invalid-feedback">
                     Please enter a valid email address.
                   </div>
@@ -161,31 +201,21 @@
 
                 <div class="mb-3">
                   <label for="password">Password</label>
-                  <input type="text" class="form-control" id="password">
+                  <input 
+                    class="form-control" 
+                    type="password" 
+                    id="password" 
+                    name="customerPassword" 
+                    autocomplete="off"
+                    required>
                   <div class="invalid-feedback">
                     Please enter a valid password.
                   </div>
                 </div>
-        
-                <div class="mb-3">
-                  <label for="address">Address</label>
-                  <input type="text" class="form-control" id="address" placeholder="155 Country Lane" required>
-                  <div class="invalid-feedback">
-                    Please enter address.
-                  </div>
-                </div>
-                <div class="mb-3">
-                  <label for="phone">Phone Number</label>
-                  <input type="text" class="form-control" id="phone" placeholder="01273 422342" required>
-                  <div class="invalid-feedback">
-                    Please enter phone number.
-                  </div>
-                </div>
-
+      
                 <div class="row">
                     <div class="col-md-6 mb-3">
-                    
-                        <button class="btn btn-primary btn-lg btn-block" type="submit">Submit</button>
+                      <button class="btn btn-primary btn-lg btn-block" type="submit">Submit</button>
                     </div>
                 </div>
                 <br>
@@ -218,6 +248,7 @@
     </footer>
 
     <!-- Optional JavaScript -->
+    <script src="/js/createCustomer.js"></script>
     <script src="/js/readAllCustomers.js"></script>
     <script src="/js/form-validation.js"></script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

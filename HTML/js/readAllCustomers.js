@@ -58,17 +58,27 @@ fetch('http://localhost:8003/readallcustomers')
                 //console.log(element.salesId)
                 
                 let cell = row.insertCell();
+                cell.setAttribute('contentEditable', 'true');
                 let text = document.createTextNode(element[key]);
                 cell.appendChild(text);
               }
-              let operation =row.insertCell()
-              let aTag = document.createElement("a");
-              aTag.href = `http://localhost:8003/updatecustomer/${element.id}`
-              aTag.innerHTML = "Update"
-              operation.appendChild(aTag)
+              let operation =row.insertCell();
+              let bUpdate = document.createElement("button");
+              bUpdate.id = "update";
+              bUpdate.name = "updateCustomer";
+              bUpdate.innerHTML = "update";
+              operation.appendChild(bUpdate);
+              // let aTag = document.createElement("a");
+              // aTag.href = `http://localhost:8003/updatecustomer/${element.id}`
+              // aTag.id ="update"
+              // aTag.name = "updateCustomer"
+              // aTag.innerHTML = "Update"
+              // operation.appendChild(aTag)
               let operation1 =row.insertCell()
               let aTagupdate = document.createElement("a");
               aTagupdate.href = `http://localhost:8003/deletecustomer/${element.id}`
+              aTagupdate.id ="delete"
+              aTagupdate.name = "deleteCustomer"
               aTagupdate.innerHTML = "Delete"
               operation1.appendChild(aTagupdate)
             }

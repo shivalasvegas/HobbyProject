@@ -1,78 +1,12 @@
 {
-"adminName":"Arthur Dent",
-"adminEmail":"adent@earth.com,
-"adminPassword":"towelsrus"
+"adminName":"Shiva King",
+"adminEmail":"shiva@gmail.com",
+"adminPassword":"23Ygf42Ygp"
 }
 
 {
-"adminName":"Ford Prefect",
-"adminEmail":"fordperfect@space.com",
-"adminPassword":"translatethis"
-}
-
-{
-"adminName":"Zaphod Beeblebrox",
-"adminEmail":"zaphee@hog.com",
-"adminPassword":"tootoot"
-}
-
-{
-"adminName":"Arthur Dent",
-"adminEmail":"adent@solarsystem.com",
-"adminPassword":"towelsrus"
-}
-
-{
-"adminName":"Arthur Dent",
-"adminEmail":"adent@solarsystem.com",
-"adminPassword":"towelsrus"
-}
-
-{
-"adminName":"Arthur Dent",
-"adminAddress":"155 Country Lane, Cottingham",
-"adminPhone":"01273 566755",
-"adminEmail":"adent@solarsystem.com",
-"adminPassword":"towelsrus"
-}
-
-{
-"adminName":"Arthur Dent",
-"adminAddress":"155 Country Lane, Cottingham",
-"adminPhone":"01273 566755",
-"adminEmail":"adent@solarsystem.com",
-"adminPassword":"towelsrus"
-}
-
-{
-"adminName":"Arthur Dent",
-"adminAddress":"155 Country Lane, Cottingham",
-"adminPhone":"01273 566755",
-"adminEmail":"adent@solarsystem.com",
-"adminPassword":"towelsrus"
-}
-
-{
-"adminName":"Arthur Dent",
-"adminAddress":"155 Country Lane, Cottingham",
-"adminPhone":"01273 566755",
-"adminEmail":"adent@solarsystem.com",
-"adminPassword":"towelsrus"
-}
-
-{
-"adminName":"Arthur Dent",
-"adminAddress":"155 Country Lane, Cottingham",
-"adminPhone":"01273 566755",
-"adminEmail":"adent@solarsystem.com",
-"adminPassword":"towelsrus"
-}
-
-{
-"adminName":"Arthur Dent",
-"adminAddress":"155 Country Lane, Cottingham",
-"adminPhone":"01273 566755",
-"adminEmail":"adent@solarsystem.com",
-"adminPassword":"towelsrus"
+"adminName":"Admin",
+"adminEmail":"admin@admin.com",
+"adminPassword":"adm1n2020!@1"
 }
 
