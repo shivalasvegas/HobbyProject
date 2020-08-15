@@ -1,7 +1,6 @@
 /* GLOBAL STYLES
--------------------------------------------------- */
-/* Padding below the footer and lighter body text */
-
+------------------------------------------------- */
+/* Changed padding surrounding body */
 body {
   padding-top: 1rem;
   padding-bottom: 1rem;
@@ -10,7 +9,6 @@ body {
 .container {
   max-width: 960px;
 }
-
 
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
@@ -36,7 +34,6 @@ body {
   min-width: 100%;
   height: 32rem;
 }
-
 
 /* MARKETING CONTENT
 -------------------------------------------------- */

@@ -549,10 +549,20 @@ pre code {
 
 .container {
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 50px;
+  padding-left: 50px;
   margin-right: auto;
   margin-left: auto;
+  /* background-color: #82abad; */
+}
+
+.backgroundColour {
+  
+  background-color: #82abad;
+}
+.inner2Colour {
+  
+  background-color: #9bc8cb;
 }
 
 @media (min-width: 576px) {
