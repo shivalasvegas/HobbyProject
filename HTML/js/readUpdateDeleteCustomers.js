@@ -67,7 +67,7 @@ fetch('http://localhost:8003/readallcustomers')
                 heads.append('Content-type', 'application/json');
                 let req = new Request(url, {
                   headers:heads,
-                  method:'DELETE'
+                  method:'GET'
                 });
                 fetch(req)
                 .then((res)=>res.json())

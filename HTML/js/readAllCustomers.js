@@ -87,9 +87,9 @@ fetch('http://localhost:8003/readallcustomers')
                 location.href = "https://www.tutorialspoint.com";
              }            
               aTagupdate.innerHTML = "Delete";
-              aTagupdate.onLoad = function(event){
+              aTagupdate.onLoad = function(){
                 //event.preventDefault(); 
-                event.stopImmediatePropagation(); 
+                //event.stopImmediatePropagation(); 
                 //return (location.href = "http://127.0.0.1:5500/html/adminportal.html");
                 location.href = "https://www.tutorialspoint.com";
                 //return false;
