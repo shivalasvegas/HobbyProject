@@ -1,5 +1,5 @@
 
-//https://cors-anywhere.herokuapp.com/
+
 function readAllCustomers(){
 fetch('http://localhost:8003/readallcustomers')
   .then(
@@ -16,7 +16,11 @@ fetch('http://localhost:8003/readallcustomers')
       response.json().then(function(data) {
         console.log(data);
         drawTable(data);
+
       });
+
+      
+
     }
   )
   .catch(function(err) {
@@ -36,9 +40,6 @@ fetch('http://localhost:8003/readallcustomers')
           let th = document.createElement("th");
           let text = document.createTextNode(key);
           th.appendChild(text);
-          // <tr>
-          // <th>what ever the key is </th>
-          // </tr>
           row.appendChild(th);
         }
         let a = document.createElement("th")
@@ -50,45 +51,71 @@ fetch('http://localhost:8003/readallcustomers')
         row.appendChild(a)
         row.appendChild(a1)
       }
-      //console.log("My id is :",element.salesId)
+      
           function generateTable(table, data) {
             for (let element of data) {
               let row = table.insertRow();
               for (key in element) {
-                //console.log(element.salesId)
-                
+              
                 let cell = row.insertCell();
-                cell.setAttribute('contentEditable', 'true');
                 let text = document.createTextNode(element[key]);
                 cell.appendChild(text);
               }
               let operation =row.insertCell();
-              let bUpdate = document.createElement("button");
-              bUpdate.id = "update";
-              bUpdate.name = "updateCustomer";
-              bUpdate.innerHTML = "update";
-              operation.appendChild(bUpdate);
-              // let aTag = document.createElement("a");
-              // aTag.href = `http://localhost:8003/updatecustomer/${element.id}`
-              // aTag.id ="update"
-              // aTag.name = "updateCustomer"
-              // aTag.innerHTML = "Update"
-              // operation.appendChild(aTag)
-              let operation1 =row.insertCell()
+              let myForm = document.createElement("form");
+              myForm.action=`http://localhost:8003/deletecustomer/${element.customerId}`;
+              myForm.method = "POST";
+
+              let aTag = document.createElement("a");
+              aTag.href = `http://localhost:8003/updatecustomer/${element.customerId}`;
+          
+              aTag.id = "updateCustomer";
+              aTag.innerHTML = "Update";
+              aTag.onclick="this.parentNode.submit();"
+              myForm.appendChild(aTag);
+              operation.appendChild(myForm);
+
+              let operation1 =row.insertCell();
               let aTagupdate = document.createElement("a");
-              aTagupdate.href = `http://localhost:8003/deletecustomer/${element.id}`
-              aTagupdate.id ="delete"
-              aTagupdate.name = "deleteCustomer"
-              aTagupdate.innerHTML = "Delete"
-              operation1.appendChild(aTagupdate)
+              aTagupdate.href = `http://localhost:8003/deletecustomer/${element.customerId}`;
+              
+              let myForm1 = document.createElement("form");
+              myForm1.method = "POST";
+              myForm1.action=`http://localhost:8003/deletecustomer/${element.customerId}`;
+           
+              function Redirect() {
+                location.href = "https://www.tutorialspoint.com";
+             }            
+              aTagupdate.innerHTML = "Delete";
+              aTagupdate.onLoad = function(event){
+                //event.preventDefault(); 
+                event.stopImmediatePropagation(); 
+                //return (location.href = "http://127.0.0.1:5500/html/adminportal.html");
+                location.href = "https://www.tutorialspoint.com";
+                //return false;
+                
+                //location.reload(true);
+                //setTimeout(Redirect(), 300); 
+              }
+              // myForm1.onsubmit = function(event){
+              //   event.preventDefault(); 
+              //   location.reload(true);
+              //   event.setTimeout(Redirect(), 3000); 
+              //   } ;
+              // event.preventDefault();
+              myForm1.appendChild(aTagupdate);
+              
+              operation1.appendChild(myForm1);
+              
+
             }
           }
          
-          let table = document.querySelector("table");
+          let table = document.getElementById("updateDelete");
           let data = Object.keys(mountains[0]);
           generateTableHead(table, data);
           generateTable(table, mountains);
+        
         }
-    
 
 
