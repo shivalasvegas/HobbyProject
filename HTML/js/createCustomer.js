@@ -6,11 +6,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function handleForm(event) {
     event.preventDefault(); 
-    //console.dir(ev.target);
+    
     let myForm = event.target;
     let formData = new FormData(myForm);
 
-    //look at all the contents
     for (let key of formData.keys()) {
       console.log(key, formData.get(key));
     }

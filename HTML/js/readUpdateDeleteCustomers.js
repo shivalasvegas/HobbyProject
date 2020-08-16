@@ -41,6 +41,7 @@ fetch('http://localhost:8003/readallcustomers')
           function generateTable(table, data) {
             for (let element of data) {
               let row = table.insertRow();
+              
               for (key in element) {
           
                 let cell = row.insertCell();
