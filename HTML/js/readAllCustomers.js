@@ -58,56 +58,20 @@ fetch('http://localhost:8003/readallcustomers')
               for (key in element) {
               
                 let cell = row.insertCell();
+                cell.setAttribute('contentEditable', 'true');
                 let text = document.createTextNode(element[key]);
                 cell.appendChild(text);
               }
               let operation =row.insertCell();
-              let myForm = document.createElement("form");
-              myForm.action=`http://localhost:8003/deletecustomer/${element.customerId}`;
-              myForm.method = "POST";
-
               let aTag = document.createElement("a");
-              aTag.href = `http://localhost:8003/updatecustomer/${element.customerId}`;
-          
-              aTag.id = "updateCustomer";
+              aTag.href = `http://localhost:8003/updatecustomer/${element.customerId}`;         
               aTag.innerHTML = "Update";
-              aTag.onclick="this.parentNode.submit();"
-              myForm.appendChild(aTag);
-              operation.appendChild(myForm);
+              operation.appendChild(aTag);
 
               let operation1 =row.insertCell();
               let aTagupdate = document.createElement("a");
               aTagupdate.href = `http://localhost:8003/deletecustomer/${element.customerId}`;
-              
-              let myForm1 = document.createElement("form");
-              myForm1.method = "POST";
-              myForm1.action=`http://localhost:8003/deletecustomer/${element.customerId}`;
-           
-              function Redirect() {
-                location.href = "https://www.tutorialspoint.com";
-             }            
-              aTagupdate.innerHTML = "Delete";
-              aTagupdate.onLoad = function(){
-                //event.preventDefault(); 
-                //event.stopImmediatePropagation(); 
-                //return (location.href = "http://127.0.0.1:5500/html/adminportal.html");
-                location.href = "https://www.tutorialspoint.com";
-                //return false;
-                
-                //location.reload(true);
-                //setTimeout(Redirect(), 300); 
-              }
-              // myForm1.onsubmit = function(event){
-              //   event.preventDefault(); 
-              //   location.reload(true);
-              //   event.setTimeout(Redirect(), 3000); 
-              //   } ;
-              // event.preventDefault();
-              myForm1.appendChild(aTagupdate);
-              
-              operation1.appendChild(myForm1);
-              
-
+              operation1.appendChild(aTagupdate);
             }
           }
          
