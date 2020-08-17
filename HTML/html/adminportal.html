@@ -3,6 +3,7 @@
   <head>
     <!-- Required meta tags ... mobile first-->
     <meta charset="utf-8">
+    <meta name="robots" content="index, follow">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link rel="stylesheet" href="/css/form-validation.css">
@@ -24,16 +25,7 @@
           }
         }
       </style>
-      <script>
-        window.onload = function(){
-          adminLoggedIn = true;
-          if (!adminLoggedIn){
-            console.log(adminLoggedIn);
-           window.location.replace("index.html");
-          }
-        };
-      </script>
-    <title>Admin Portal</title>
+    <title>SFG - Admin Portal</title>
   </head>
   <body>
     <header>
@@ -208,7 +200,7 @@
               <form class="form" method="GET" id="formReadCustomers" action="adminportal.html">
                 <div class="row">
                     <div class="col-md-6 mb-3">
-                        <button class="btn btn-secondary btn-lg btn-block" type="button" id="readCustomers" onClick="readAllCustomers()">View Customers</button>
+                        <button class="btn btn-secondary btn-md btn-block" type="button" id="readCustomers" onClick="readAllCustomers()">View Customers</button>
                     </div>
                 </div >
               </form>
@@ -217,11 +209,12 @@
           <div class="table-responsive">
             <table class="table table-hover" id="updateDelete"></table>
           </div>
-          <form class="form" method="PUT" id="formUpdateCustomers" action="adminportal.html">
+          <br><br>
+          <form class="form" method="PUT" id="formUpdateCustomers" >
             
             <div class="row">
-                <div class="col-md-6 mb-3">
-                    <button class="btn btn-secondary btn-lg btn-block" type="button" id="updateCustomer" onClick="updateCustomer()">Update Customer</button>
+                <div class="col-md-4 mb-3">
+                    <button class="btn btn-secondary btn-md btn-block" type="button" id="updateCustomer" onClick="updateCustomer()">Update Customer</button>
                 </div>
             </div >
           </form>

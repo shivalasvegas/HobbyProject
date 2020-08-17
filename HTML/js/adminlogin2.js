@@ -1,12 +1,9 @@
 
-let adminLoggedIn = false;
-
-
-    console.log("Inside admin form");
-    const url = "http://localhost:8003/readalladmins";
-
     async function getAdminData(form){
-        console.log("Inside getData");
+
+        let formData = new FormData(form);
+
+        const url = `http://localhost:8003/checkadmindetails/${formData.get("adminEmail")}/${formData.get("adminPassword")}`;
         
         fetch(url)
         .then(
@@ -18,7 +15,13 @@ let adminLoggedIn = false;
         }
       response.json().then(function(data) {
         console.log(data);
-        
+        if (data){
+            alert ("Login successful");  
+            window.location.replace("adminportal.html");
+        }
+        else{
+            alert("Please enter a valid username and password.");
+        }
         });
         }
         )
@@ -26,23 +29,11 @@ let adminLoggedIn = false;
         console.log('Fetch Error :-S', err);
     });
 
-        for (let i = 0; i <=2; i++) {
-            console.log("inside if statment");
-            console.log(form.username.value);
-            console.log(form.username.value + " = " + data.results[i].adminEmail);
-            if (form.username.value == data.results[i].adminEmail && form.userpwd.value == data.results[i].adminPassword){
-                
-                adminLoggedIn = true;
-                alert ("Login successful");  
-                window.open("adminportal.html");
-            }
-            else{
-                alert("Wrong username or password");
-
-            }
-        }
+        
 
     }
+
+
     
 
 
