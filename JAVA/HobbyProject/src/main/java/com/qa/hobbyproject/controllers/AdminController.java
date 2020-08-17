@@ -47,6 +47,12 @@ public class AdminController {
 		return record;
 	}
 
+	@PostMapping("/updateadmin/{id}")
+	public Admin updateAdminRecord2(@RequestBody Admin newAdmin, @PathVariable int id) {
+		Admin record = service.updateAdmin(newAdmin, id);
+		return record;
+	}
+
 	@DeleteMapping("/deleteadmin/{id}")
 
 	public String deleteAdminRecord(@PathVariable int id) throws IdNotFoundException {

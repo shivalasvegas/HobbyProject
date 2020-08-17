@@ -33,7 +33,7 @@ public class AdminService {
 
 	public List<Admin> readAllAdmins() {
 		List<Admin> adminRecords = this.adminRepo.findAll();
-		LOGGER.info("Read Customers"); 
+		LOGGER.info("Read Admins"); 
 		return adminRecords;
 
 	}
