@@ -37,67 +37,40 @@
   </head>
   <body>
     <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">SFG</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item active">
-              <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="gallery.html">Gallery</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="workshops.html">Workshops</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="booking.html">Booking Form</a>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <a class="navbar-brand" href="/html/index.html"><img src="/html/pix/logo_300px.png" alt="sfg logo 300px" style="width:150px; height: 150px;"></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item active">
+                <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
               </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" href="exclusive.html">Exclusive</a>
-            </li>
-          </ul>
-        </div>
-        <nav class="navbar navbar-light bg-light">
-            <form class="form-inline">
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text" id="basic-addon1">@</span>
-                </div>
-                <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-              </div>
-            </form>
-          </nav>
-          <nav class="navbar navbar-light bg-light">
-            <form class="form-inline">
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text" id="basic-addon2">pwd</span>
-                </div>
-                <input type="text" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon2">
-              </div>
-            </form>
-          </nav>
-      </nav>
-      
-    </header> <!--container -->
+              <li class="nav-item">
+                <a class="nav-link" href="gallery.html">Gallery</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="workshops.html">Workshops</a>
+              </li>
+            </ul>
+          </div>
+          
+        </nav>
+        
+      </header> <!--container -->
 
     <main>
+      <br><br><br>
       <div class="container">
         <div class="row">
             <div class="col-md-4 order-md-2 mb-4">
-              <h5 class="d-flex justify-content-between align-items-center mb-3">
-                Update Admin details
-              </h5>
-             
-                  <form class="needs-validation" method="PUT" id="formUpdateAdmin" novalidate>
+              <h5 class="d-flex justify-content-between align-items-center mb-3">Update Admin details</h5>
+                  <form class="needs-validation" method="POST" id="formUpdateAdmin" novalidate>
                   <input 
-                    type="number" 
-                    id="customerId" 
-                    name="customerId"
+                    type="text" 
+                    id="adminId" 
+                    name="adminId"
                     autocomplete="off"
                     placeholder="Admin id" 
                     required>
@@ -106,7 +79,7 @@
                     <input 
                       class="form-control" 
                       type="text" 
-                      id="name" 
+                      id="adminName" 
                       name="adminName"
                       autocomplete="off"
                       required>
@@ -117,8 +90,8 @@
                   <input 
                     class="form-control" 
                     type="email" 
-                    id="email" 
-                    name="customerEmail" 
+                    id="adminEmail" 
+                    name="adminEmail" 
                     placeholder="you@example.com" 
                     autocomplete="off"
                     required>
@@ -129,8 +102,8 @@
                   <input 
                     class="form-control" 
                     type="password" 
-                    id="password" 
-                    name="customerPassword" 
+                    id="adminPassword" 
+                    name="adminPassword" 
                     autocomplete="off"
                     required>
                   <div class="invalid-feedback">
@@ -139,7 +112,7 @@
                     
                     <br>
                   <div class="input-group-append">
-                    <button type="submit" class="btn btn-secondary">Update</button>
+                    <button type="submit" class="btn btn-secondary" >Update</button>
                   </div>
                 </form>
               
@@ -231,19 +204,27 @@
                 </div>
                 <br>
               </form>
+
               <form class="form" method="GET" id="formReadCustomers" action="adminportal.html">
                 <div class="row">
                     <div class="col-md-6 mb-3">
-                        <button class="btn btn-primary btn-lg btn-block" type="button" id="readCustomers" onClick="readAllCustomers()">View Customers</button>
+                        <button class="btn btn-secondary btn-lg btn-block" type="button" id="readCustomers" onClick="readAllCustomers()">View Customers</button>
                     </div>
                 </div >
               </form>
             </div>
-        </div>
-        
+         </div>
           <div class="table-responsive">
             <table class="table table-hover" id="updateDelete"></table>
           </div>
+          <form class="form" method="PUT" id="formUpdateCustomers" action="adminportal.html">
+            
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <button class="btn btn-secondary btn-lg btn-block" type="button" id="updateCustomer" onClick="updateCustomer()">Update Customer</button>
+                </div>
+            </div >
+          </form>
           
 
 
@@ -262,14 +243,15 @@
     <!-- Optional JavaScript -->
 
     <script src ="/js/adminlogin.js"></script>
+    <script src ="/js/updateAdmin.js"></script>
     <script src="/js/createCustomer.js"></script>
-    <script src="/js/readAllCustomers.js"></script>
-    <!-- <script src="/js/readUpdateDeleteCustomers.js"></script> -->
+    <!-- <script src="/js/readAllCustomers.js"></script> -->
+    <script src="/js/readUpdateDeleteCustomers.js"></script>
     <script src="/js/form-validation.js"></script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script> -->
     
 </body>
 </html>

@@ -7,13 +7,24 @@ let adminLoggedIn = false;
 
     async function getAdminData(form){
         console.log("Inside getData");
-        //let formData = new FormData(form);
-
-
-        const response = await fetch(url);
-        const data = await response.json();
-
-        console.log(data.results);
+        
+        fetch(url)
+        .then(
+            function(response) { 
+        if (response.status !== 200) {
+            console.log('Looks like there was a problem. Status Code: ' +
+            response.status);
+            return;
+        }
+      response.json().then(function(data) {
+        console.log(data);
+        
+        });
+        }
+        )
+    .catch(function(err) {
+        console.log('Fetch Error :-S', err);
+    });
 
         for (let i = 0; i <=2; i++) {
             console.log("inside if statment");

@@ -19,8 +19,6 @@ fetch('http://localhost:8003/readallcustomers')
 
       });
 
-      
-
     }
   )
   .catch(function(err) {
