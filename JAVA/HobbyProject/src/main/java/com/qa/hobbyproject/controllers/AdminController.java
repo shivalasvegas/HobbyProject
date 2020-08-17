@@ -40,6 +40,14 @@ public class AdminController {
 
 		return record;
 	}
+	
+	@GetMapping("/checkadmindetails/{adminEmail}/{adminPassword}")
+	public boolean checkAdminRecords(@PathVariable String adminEmail, @PathVariable String adminPassword) {
+		boolean isAdmin = service.checkAdminDetails(adminEmail, adminPassword);
+		
+		return isAdmin;
+	}
+	
 
 	@PutMapping("/updateadmin/{id}")
 	public Admin updateAdminRecord(@RequestBody Admin newAdmin, @PathVariable int id) {

@@ -14,6 +14,7 @@ import com.qa.hobbyproject.repositories.AdminRepository;
 public class AdminService {
 
 	private final static Logger LOGGER = Logger.getLogger(Logger.class.getName());
+	private boolean isAdmin = false;
 	
 	@Autowired
 	AdminRepository adminRepo;
@@ -35,6 +36,25 @@ public class AdminService {
 		List<Admin> adminRecords = this.adminRepo.findAll();
 		LOGGER.info("Read Admins"); 
 		return adminRecords;
+
+	}
+	
+	public boolean checkAdminDetails(String adminEmail, String adminPassword) {
+		List<Admin> adminRecords = this.adminRepo.findAll();
+		LOGGER.info("Checking admin data"); 
+		for (int i=0; i<adminRecords.size(); i++) {
+			if (adminRecords.get(i).getAdminEmail().equals(adminEmail)) {
+				if (adminRecords.get(i).getAdminPassword().equals(adminPassword)) {
+					LOGGER.info("We have an admin match!"); 
+					this.isAdmin = true;
+				}
+			}
+			else {
+				LOGGER.info("We have an admin fail!"); 
+			}
+		}
+		
+		return this.isAdmin;
 
 	}
 
