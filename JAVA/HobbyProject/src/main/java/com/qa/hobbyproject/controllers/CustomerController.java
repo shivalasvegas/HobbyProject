@@ -50,7 +50,7 @@ public class CustomerController {
 		return record;
 	}
 	
-	@GetMapping("/updatecustomer/{id}")
+	@PostMapping("/updatecustomer/{id}")
 	public Customer updateCustomerRecord1(@RequestBody Customer newCustomer, @PathVariable int id) {
 		Customer record = service.updateCustomer(newCustomer, id);
 		return record;

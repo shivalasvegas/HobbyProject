@@ -38,6 +38,16 @@ public class Customer {
 		this.customerPassword = customerPassword;
 	}
 	
+	public Customer(int customerId, String customerName, String customerAddress, String customerPhone, String customerEmail, String customerPassword) {
+		
+		this.customerId = customerId;
+		this.customerName = customerName;
+		this.customerAddress = customerAddress;
+		this.customerPhone = customerPhone;
+		this.customerEmail = customerEmail;
+		this.customerPassword = customerPassword;
+	}
+	
 	public int getCustomerId() {
 		return customerId;
 	}

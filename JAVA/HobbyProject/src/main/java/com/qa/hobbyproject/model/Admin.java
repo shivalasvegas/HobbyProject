@@ -33,6 +33,14 @@ public class Admin {
 		this.adminPassword = adminPassword;
 		
 	}
+	
+	public Admin(int adminId, String adminEmail, String adminPassword) {
+		
+		this.adminId = adminId;
+		this.adminEmail = adminEmail;
+		this.adminPassword = adminPassword;
+		
+	}
 
 	public int getAdminId() {
 		return adminId;
