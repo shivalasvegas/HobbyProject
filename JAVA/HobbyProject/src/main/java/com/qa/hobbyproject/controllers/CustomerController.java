@@ -43,6 +43,13 @@ public class CustomerController {
 
 		return record;
 	}
+	
+	@GetMapping("/checkcustomerdetails/{customerEmail}/{customerPassword}")
+	public boolean checkCustomerRecords(@PathVariable String customerEmail, @PathVariable String customerPassword) {
+		boolean isCustomer = service.checkCustomerDetails(customerEmail, customerPassword);
+		
+		return isCustomer;
+	}
 
 	@PutMapping("/updatecustomer/{id}")
 	public Customer updateCustomerRecord(@RequestBody Customer newCustomer, @PathVariable int id) {
