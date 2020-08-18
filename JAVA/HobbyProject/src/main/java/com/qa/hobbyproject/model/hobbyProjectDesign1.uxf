@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>10</x>
+      <y>0</y>
+      <w>690</w>
+      <h>400</h>
+    </coordinates>
+    <panel_attributes>com.qa.hobbyproject.model::Booking
+--
+-bookingId: int
+-customer: Customer
+-bookingDate: String
+-workshop: String
+-price: double
+-paymentType: String
+--
++Booking(): ctor
++Booking(Customer customer, String bookingDate, String workshop, String paymentType, double price): ctor
++getBookingId(): int
++setBookingId(int bookingId): void
++getCustomer(): Customer
++setCustomer(Customer customer): void
++getBookingDate(): String
++setBookingDate(String bookingDate): void
++getWorkshop(): String
++setWorkshop(String workshop): void
++getPaymentType(): String
++setPaymentType(String paymentType): void
++getPrice(): double
++setPrice(double price): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>710</x>
+      <y>0</y>
+      <w>870</w>
+      <h>400</h>
+    </coordinates>
+    <panel_attributes>com.qa.hobbyproject.model::Customer
+--
+-customerId: int
+-customerName: String
+-customerAddress: String
+-customerPhone: String
+-customerEmail: String
+-customerPassword: String
+--
++Customer(): ctor
++Customer(String customerName, String customerAddress, String customerPhone, String customerEmail, String customerPassword): ctor
++getCustomerId(): int
++setCustomerId(int customerId): void
++getCustomerName(): String
++setCustomerName(String customerName): void
++getCustomerAddress(): String
++setCustomerAddress(String customerAddress): void
++getCustomerPhone(): String
++setCustomerPhone(String customerPhone): void
++getCustomerEmail(): String
++setCustomerEmail(String customerEmail): void
++getCustomerPassword(): String
++setCustomerPassword(String customerPassword): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>10</x>
+      <y>410</y>
+      <w>380</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>com.qa.hobbyproject.model::CreditCard
+--
+-creaditCardId: int
+-customer: Customer
+-cardNumber: String
+--
++CreditCard(): ctor
++CreditCard(Customer customer, String cardNumber): ctor
++getCreaditCardId(): int
++setCreaditCardId(int creaditCardId): void
++getCustomer(): Customer
++setCustomer(Customer customer): void
++getCardNumber(): String
++setCardNumber(String cardNumber): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
