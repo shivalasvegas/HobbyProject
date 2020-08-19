@@ -82,14 +82,6 @@ public class CustomerControllerUnitTest {
 	}
 
 	
-	
-	@Test
-	public void testUpdate_updateCustomerRecord() {
-		when(this.service.updateCustomer(this.testNewCustomer, this.id)).thenReturn(this.testNewCustomer);
-		Customer record = this.controller.updateCustomerRecord(this.testNewCustomer, this.id);
-		assertEquals(this.testNewCustomer, record);
-	}
-
 	@Test
 	public void testUpdate_updateCustomerRecord1() {
 		when(this.service.updateCustomer(this.testNewCustomer, this.id)).thenReturn(this.testNewCustomer);
