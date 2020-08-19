@@ -1,6 +1,7 @@
 package com.qa.hobbyproject.controllertests;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
@@ -32,6 +33,8 @@ public class CustomerControllerUnitTest {
 	private Customer testCustomer;
 	private Customer testNewCustomer;
 	private int id;
+	private String email;
+	private String password;
 	private List<Customer> listCustomer = new ArrayList<>();
 
 	@Before
@@ -43,6 +46,8 @@ public class CustomerControllerUnitTest {
 		this.testNewCustomer = new Customer("Ford Prefect", "The Universe", "0000111", "perfect@universe.com",
 				"towelsrus");
 		this.id = this.testCustomer.getCustomerId();
+		this.email = this.testCustomer.getCustomerEmail();
+		this.password = this.testCustomer.getCustomerPassword();
 
 	}
 
@@ -61,12 +66,22 @@ public class CustomerControllerUnitTest {
 	}
 
 	@Test
+	public void testCheck_checkCustomerRecords() {
+		when(this.service.checkCustomerDetails(this.email, this.password)).thenReturn(true);
+		
+		boolean isCustomer = this.controller.checkCustomerRecords(this.email, this.password);
+		assertTrue(isCustomer);
+	}
+
+	@Test
 	public void testReadAll_readAllCustomerRecords() {
 		when(this.service.readAllCustomers()).thenReturn(this.listCustomer);
 		List<Customer> record = this.controller.readAllCustomerRecords();
 		assertEquals(this.listCustomer, record);
 	}
 
+	
+	
 	@Test
 	public void testUpdate_updateCustomerRecord() {
 		when(this.service.updateCustomer(this.testNewCustomer, this.id)).thenReturn(this.testNewCustomer);

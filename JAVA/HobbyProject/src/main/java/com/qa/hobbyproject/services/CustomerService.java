@@ -14,7 +14,7 @@ import com.qa.hobbyproject.repositories.CustomerRepository;
 public class CustomerService {
 
 	private final static Logger LOGGER = Logger.getLogger(Logger.class.getName());
-	private boolean isCustomer = false;
+	
 	
 	@Autowired
 	CustomerRepository customerRepo;
@@ -40,21 +40,14 @@ public class CustomerService {
 	}
 	
 	public boolean checkCustomerDetails(String customerEmail, String customerPassword) {
-		List<Customer> customerRecords = this.customerRepo.findAll();
+		boolean isCustomer = false;
 		LOGGER.info("Checking customer data"); 
-		for (int i=0; i<customerRecords.size(); i++) {
-			if (customerRecords.get(i).getCustomerEmail().equals(customerEmail)) {
-				if (customerRecords.get(i).getCustomerPassword().equals(customerPassword)) {
-					LOGGER.info("We have a customer match!"); 
-					this.isCustomer = true;
-				}
-			}
-			else {
-				LOGGER.info("We have a customer fail!"); 
-			}
+		Customer customer = this.customerRepo.findByCustomerEmail(customerEmail);
+		if (customer.getCustomerPassword() == customerPassword && !(customer==null)) {
+			isCustomer = true;
 		}
-		
-		return this.isCustomer;
+			
+		return isCustomer;
 
 	}
 

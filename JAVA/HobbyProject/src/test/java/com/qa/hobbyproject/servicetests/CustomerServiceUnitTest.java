@@ -1,11 +1,15 @@
 package com.qa.hobbyproject.servicetests;
 
 import static org.junit.Assert.assertEquals;
+//import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+//import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+//import java.util.logging.Logger;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -27,6 +31,8 @@ public class CustomerServiceUnitTest {
 
 	@Autowired
 	private CustomerService service;
+	//private final static Logger LOGGER = Logger.getLogger(Logger.class.getName());
+	
 
 	private Optional<Customer> testOpCustomer;
 	private Customer testCustomer;
@@ -34,6 +40,9 @@ public class CustomerServiceUnitTest {
 	private Customer testNewCustomerWithId;
 
 	private int id;
+	private String customerEmail;
+	private String customerPassword;
+	
 	private List<Customer> listCustomer = new ArrayList<>();
 
 	@Before
@@ -43,8 +52,13 @@ public class CustomerServiceUnitTest {
 				"123345");
 		this.testCustomer.setCustomerId(1);
 		this.id = this.testCustomer.getCustomerId();
+		this.customerEmail = this.testCustomer.getCustomerEmail();
+		this.customerPassword = this.testCustomer.getCustomerPassword();
 
 		this.testOpCustomer = Optional.ofNullable(this.testCustomer);
+		
+
+		
 		this.testNewCustomer = new Customer("Ford Prefect", "The Universe", "0000111", "perfect@universe.com",
 			"towelsrus");
 		this.testNewCustomerWithId = new Customer("Ford Prefect", "The Universe", "0000111", "perfect@universe.com",
@@ -75,6 +89,16 @@ public class CustomerServiceUnitTest {
 	}
 
 	@Test
+	public void testReadDetails_checkCustomerDetails() {
+		when(this.repo.findByCustomerEmail(this.customerEmail)).thenReturn(this.testCustomer);
+		boolean isCustomer = this.service.checkCustomerDetails(this.customerEmail, this.customerPassword);
+		
+		assertTrue(isCustomer);
+		
+	}
+
+	
+	@Test
 	public void testUpdate_updateCustomer() {
 		when(this.repo.findById(this.id)).thenReturn(this.testOpCustomer);
 		
@@ -86,7 +110,7 @@ public class CustomerServiceUnitTest {
 
 	@Test
 	public void testDelete_deleteCustomer() {
-		when(this.repo.findById(this.id)).thenReturn(this.testOpCustomer).thenReturn(null);
+		when(this.repo.findById(this.id)).thenReturn(this.testOpCustomer);
 		boolean deletedRepo = !this.repo.existsById(this.id);
 		boolean deleted = this.service.deleteCustomer(this.id);
 

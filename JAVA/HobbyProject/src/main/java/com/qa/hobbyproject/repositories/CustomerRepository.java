@@ -9,5 +9,5 @@ import com.qa.hobbyproject.model.Customer;
 @Repository
 public interface CustomerRepository extends JpaRepository<Customer, Integer> {
 
-		
+		Customer findByCustomerEmail (String email);
 }

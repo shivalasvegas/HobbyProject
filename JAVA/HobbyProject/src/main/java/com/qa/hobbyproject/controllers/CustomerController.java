@@ -63,7 +63,7 @@ public class CustomerController {
 		return record;
 	}
 
-	//@PostMapping("/deletecustomer/{id}")
+
 	@DeleteMapping("/deletecustomer/{id}")
 	public String deleteCustomerRecord(@PathVariable int id) throws IdNotFoundException {
 		boolean deleted = this.service.deleteCustomer(id);
@@ -81,9 +81,26 @@ public class CustomerController {
 		return message;
 	}
 	
+	@PostMapping("/deletecustomer/{id}")
+	public String deleteCustomerRecord1(@PathVariable int id) throws IdNotFoundException {
+		boolean deleted = this.service.deleteCustomer(id);
+
+		String message;
+		try {
+			if (deleted)
+				message = "Customer deleted";
+			else
+				message = "Id does not exist";
+		} catch (IdNotFoundException customerException) {
+			message = "Please enter another id";
+		}
+
+		return message;
+	}
+	
 	@GetMapping("/deletecustomer/{id}")
 
-	public String deleteCustomerRecord1(@PathVariable int id) throws IdNotFoundException {
+	public String deleteCustomerRecord2(@PathVariable int id) throws IdNotFoundException {
 		boolean deleted = this.service.deleteCustomer(id);
 
 		String message;
