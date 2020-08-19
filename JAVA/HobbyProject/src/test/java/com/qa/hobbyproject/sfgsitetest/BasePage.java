@@ -1,6 +1,8 @@
 package com.qa.hobbyproject.sfgsitetest;
 
 
+import org.junit.After;
+
 //import java.util.logging.Logger;
 
 import org.junit.Before;
@@ -29,9 +31,20 @@ public class BasePage {
 	//String logMessage;
 	
 	@Test
-	public void test1() throws InterruptedException {
-		driver.get("http://localhost:8003/index.html");
-	}
+    public void test1() throws InterruptedException {
+        driver.get("http://google.com");
+    }
 	
+//	@Test
+//	public void test2() throws InterruptedException {
+//		driver.get("http://localhost:8003/index.html");
+//	}
+//	
+	@After
+    public void after() {
+        driver.quit();
+    }
+    
+    
 
 }
