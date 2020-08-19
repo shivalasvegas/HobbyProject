@@ -1,6 +1,7 @@
 package com.qa.hobbyproject.controllertests;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
@@ -31,6 +32,9 @@ public class AdminControllerUnitTest {
 	private Admin testAdmin;
 	private Admin testNewAdmin;
 	private int id;
+	private String email;
+	private String password;
+	
 	private List<Admin> listAdmin = new ArrayList<>();
 
 	@Before
@@ -39,6 +43,8 @@ public class AdminControllerUnitTest {
 		this.testAdmin = new Admin("Arthur Dent", "adent@earth.com","123345");
 		this.testAdmin.setAdminId(1);
 		this.id = this.testAdmin.getAdminId();
+		this.email = this.testAdmin.getAdminEmail();
+		this.password = this.testAdmin.getAdminPassword();
 
 		this.testNewAdmin = new Admin("Ford Prefect","perfect@universe.com","towelsrus");
 		
@@ -67,12 +73,29 @@ public class AdminControllerUnitTest {
 	}
 
 	@Test
+	public void testCheck_checkAdminRecords() {
+		when(this.service.checkAdminDetails(this.email, this.password)).thenReturn(true);
+		
+		boolean isCustomer = this.controller.checkAdminRecords(this.email, this.password);
+		assertTrue(isCustomer);
+	}
+	
+	@Test
 	public void testUpdate_updateAdminRecord() {
 		when(this.service.updateAdmin(this.testNewAdmin, this.id)).thenReturn(this.testNewAdmin);
 		Admin record = this.controller.updateAdminRecord(this.testNewAdmin, this.id);
 		assertEquals(this.testNewAdmin, record);
 	}
 
+	
+	@Test
+	public void testUpdate_updateAdminRecord2() {
+		when(this.service.updateAdmin(this.testNewAdmin, this.id)).thenReturn(this.testNewAdmin);
+		Admin record = this.controller.updateAdminRecord2(this.testNewAdmin, this.id);
+		assertEquals(this.testNewAdmin, record);
+	}
+
+	
 	@Test
 	public void testDelete_deleteAdminRecord() {
 		when(this.service.deleteAdmin(this.id)).thenReturn(true);

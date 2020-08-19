@@ -8,13 +8,14 @@ import org.springframework.stereotype.Service;
 
 import com.qa.hobbyproject.exceptions.IdNotFoundException;
 import com.qa.hobbyproject.model.Admin;
+
 import com.qa.hobbyproject.repositories.AdminRepository;
 
 @Service
 public class AdminService {
 
 	private final static Logger LOGGER = Logger.getLogger(Logger.class.getName());
-	private boolean isAdmin = false;
+
 	
 	@Autowired
 	AdminRepository adminRepo;
@@ -40,23 +41,17 @@ public class AdminService {
 	}
 	
 	public boolean checkAdminDetails(String adminEmail, String adminPassword) {
-		List<Admin> adminRecords = this.adminRepo.findAll();
+		boolean isAdmin = false;
 		LOGGER.info("Checking admin data"); 
-		for (int i=0; i<adminRecords.size(); i++) {
-			if (adminRecords.get(i).getAdminEmail().equals(adminEmail)) {
-				if (adminRecords.get(i).getAdminPassword().equals(adminPassword)) {
-					LOGGER.info("We have an admin match!"); 
-					this.isAdmin = true;
-				}
-			}
-			else {
-				LOGGER.info("We have an admin fail!"); 
-			}
+		Admin admin = this.adminRepo.findByAdminEmail(adminEmail);
+		if (admin.getAdminPassword() == adminPassword && !(admin==null)) {
+			isAdmin = true;
 		}
-		
-		return this.isAdmin;
+			
+		return isAdmin;
 
 	}
+
 
 	// Update
 	public Admin updateAdmin(Admin updatedAdmin, int id) {

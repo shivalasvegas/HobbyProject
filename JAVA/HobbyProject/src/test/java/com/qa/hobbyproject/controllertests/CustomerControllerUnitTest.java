@@ -19,7 +19,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import com.qa.hobbyproject.controllers.CustomerController;
 import com.qa.hobbyproject.model.Customer;
 import com.qa.hobbyproject.services.CustomerService;
-import com.qa.hobbyproject.exceptions.IdNotFoundException;
+
 
 @RunWith(SpringRunner.class)
 @SpringBootTest

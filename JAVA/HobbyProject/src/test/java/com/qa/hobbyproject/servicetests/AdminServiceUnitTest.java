@@ -1,6 +1,7 @@
 package com.qa.hobbyproject.servicetests;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
@@ -35,6 +36,9 @@ public class AdminServiceUnitTest {
 	private Admin testNewAdminWithId;
 
 	private int id;
+	private String adminEmail;
+	private String adminPassword;
+	
 	private List<Admin> listAdmin = new ArrayList<>();
 
 	@Before
@@ -43,6 +47,8 @@ public class AdminServiceUnitTest {
 		this.testAdmin = new Admin("Arthur Dent", "adent@earth.com","123345");
 		this.testAdmin.setAdminId(1);
 		this.id = this.testAdmin.getAdminId();
+		this.adminEmail = this.testAdmin.getAdminEmail();
+		this.adminPassword = this.testAdmin.getAdminPassword();
 
 		this.testOpAdmin = Optional.ofNullable(this.testAdmin);
 		this.testNewAdmin = new Admin("Ford Prefect", "perfect@universe.com","towelsrus");
@@ -70,6 +76,15 @@ public class AdminServiceUnitTest {
 		when(this.repo.findAll()).thenReturn(this.listAdmin);
 		List<Admin> newListAdmin = this.service.readAllAdmins();
 		assertEquals(this.listAdmin, newListAdmin);
+	}
+	
+	@Test
+	public void testReadDetails_checkAdminDetails() {
+		when(this.repo.findByAdminEmail(this.adminEmail)).thenReturn(this.testAdmin);
+		boolean isAdmin = this.service.checkAdminDetails(this.adminEmail, this.adminPassword);
+		
+		assertTrue(isAdmin);
+		
 	}
 
 	@Test
