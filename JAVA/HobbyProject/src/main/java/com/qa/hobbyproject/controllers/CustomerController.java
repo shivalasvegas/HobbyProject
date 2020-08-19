@@ -99,7 +99,6 @@ public class CustomerController {
 	}
 	
 	@GetMapping("/deletecustomer/{id}")
-
 	public String deleteCustomerRecord2(@PathVariable int id) throws IdNotFoundException {
 		boolean deleted = this.service.deleteCustomer(id);
 

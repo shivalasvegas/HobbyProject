@@ -19,6 +19,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import com.qa.hobbyproject.controllers.CustomerController;
 import com.qa.hobbyproject.model.Customer;
 import com.qa.hobbyproject.services.CustomerService;
+import com.qa.hobbyproject.exceptions.IdNotFoundException;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -90,15 +91,40 @@ public class CustomerControllerUnitTest {
 	}
 
 	@Test
+	public void testUpdate_updateCustomerRecord1() {
+		when(this.service.updateCustomer(this.testNewCustomer, this.id)).thenReturn(this.testNewCustomer);
+		Customer record = this.controller.updateCustomerRecord1(this.testNewCustomer, this.id);
+		assertEquals(this.testNewCustomer, record);
+	}
+	
+	@Test
 	public void testDelete_deleteCustomerRecord() {
 		when(this.service.deleteCustomer(this.id)).thenReturn(true);
 		
 		String message1 = this.controller.deleteCustomerRecord(this.id);
 		String message2 = this.controller.deleteCustomerRecord(12);
+		
 		boolean deleted = message1.equals("Customer deleted");
 		boolean idNotExist = message2.equals("Id does not exist");
 		assertEquals(true, deleted);
 		assertEquals(true, idNotExist);
 	}
+	
+	
+	
+	@Test
+	public void testDelete_deleteCustomerRecord1() {
+		when(this.service.deleteCustomer(this.id)).thenReturn(true);
+		
+		String message1 = this.controller.deleteCustomerRecord(this.id);
+		String message2 = this.controller.deleteCustomerRecord(12);
+		
+		boolean deleted = message1.equals("Customer deleted");
+		boolean idNotExist = message2.equals("Id does not exist");
+		assertEquals(true, deleted);
+		assertEquals(true, idNotExist);
+	}
+	
+	
 
 }
