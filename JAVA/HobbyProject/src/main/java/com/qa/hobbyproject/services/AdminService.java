@@ -44,7 +44,10 @@ public class AdminService {
 		boolean isAdmin = false;
 		LOGGER.info("Checking admin data"); 
 		Admin admin = this.adminRepo.findByAdminEmail(adminEmail);
-		if (admin.getAdminPassword() == adminPassword && !(admin==null)) {
+		if (admin==null) isAdmin = false;
+		else isAdmin = true;
+		
+		if (admin.getAdminPassword() == adminPassword && isAdmin) {
 			isAdmin = true;
 		}
 			

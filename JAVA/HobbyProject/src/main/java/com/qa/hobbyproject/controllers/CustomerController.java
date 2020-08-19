@@ -51,11 +51,6 @@ public class CustomerController {
 		return isCustomer;
 	}
 
-	@PutMapping("/updatecustomer/{id}")
-	public Customer updateCustomerRecord(@RequestBody Customer newCustomer, @PathVariable int id) {
-		Customer record = service.updateCustomer(newCustomer, id);
-		return record;
-	}
 	
 	@PostMapping("/updatecustomer/{id}")
 	public Customer updateCustomerRecord1(@RequestBody Customer newCustomer, @PathVariable int id) {

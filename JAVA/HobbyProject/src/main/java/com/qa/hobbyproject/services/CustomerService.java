@@ -43,7 +43,9 @@ public class CustomerService {
 		boolean isCustomer = false;
 		LOGGER.info("Checking customer data"); 
 		Customer customer = this.customerRepo.findByCustomerEmail(customerEmail);
-		if (customer.getCustomerPassword() == customerPassword && !(customer==null)) {
+		if (customer==null) isCustomer = false;
+		else isCustomer = true;
+		if (customer.getCustomerPassword() == customerPassword && isCustomer) {
 			isCustomer = true;
 		}
 			

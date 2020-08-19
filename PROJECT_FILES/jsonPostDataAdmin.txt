@@ -10,3 +10,8 @@
 "adminPassword":"adm1n2020!@1"
 }
 
+{
+"adminName":"Admin",
+"adminEmail":"admin@admin.com",
+"adminPassword":"adm2n2020!@2"
+}

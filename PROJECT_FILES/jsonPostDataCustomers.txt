@@ -23,27 +23,27 @@
 }
 
 {
-"customerName":"Arthur Dent",
-"customerAddress":"155 Country Lane, Cottingham",
-"customerPhone":"01273 566755",
-"customerEmail":"adent@solarsystem.com",
-"customerPassword":"towelsrus"
+"customerName":"Marvin Android",
+"customerAddress":"The Heart of Gold",
+"customerPhone":"01101101",
+"customerEmail":"starvinmarvin@solarsystem.com",
+"customerPassword":"paranoid"
 }
 
 {
-"customerName":"Arthur Dent",
-"customerAddress":"155 Country Lane, Cottingham",
-"customerPhone":"01273 566755",
-"customerEmail":"adent@solarsystem.com",
-"customerPassword":"towelsrus"
+"customerName":"Trillian Astra",
+"customerAddress":"The Heart of Gold",
+"customerPhone":"07777 819219",
+"customerEmail":"trilla@solarsystem.com",
+"customerPassword":"Aa45@23wp!#"
 }
 
 {
-"customerName":"Arthur Dent",
-"customerAddress":"155 Country Lane, Cottingham",
-"customerPhone":"01273 566755",
-"customerEmail":"adent@solarsystem.com",
-"customerPassword":"towelsrus"
+"customerName":"Slartibartfast",
+"customerAddress":"Earth Mk.II",
+"customerPhone":"23456789",
+"customerEmail":"slarti@universe214.com",
+"customerPassword":"fjordsRgreat"
 }
 
 {
