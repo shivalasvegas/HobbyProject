@@ -1,0 +1,10 @@
+com\qa\hobbyproject\controllers\AdminController.class
+com\qa\hobbyproject\HobbyProjectApplication.class
+com\qa\hobbyproject\controllers\CustomerController.class
+com\qa\hobbyproject\exceptions\IdNotFoundException.class
+com\qa\hobbyproject\model\Admin.class
+com\qa\hobbyproject\services\AdminService.class
+com\qa\hobbyproject\model\Customer.class
+com\qa\hobbyproject\services\CustomerService.class
+com\qa\hobbyproject\repositories\AdminRepository.class
+com\qa\hobbyproject\repositories\CustomerRepository.class

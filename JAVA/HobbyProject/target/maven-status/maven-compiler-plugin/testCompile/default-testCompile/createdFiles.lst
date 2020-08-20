@@ -1,0 +1,12 @@
+com\qa\hobbyproject\sfgsitetest\BasePage.class
+com\qa\hobbyproject\sfgsitetest\AdminLogin.class
+com\qa\hobbyproject\servicetests\AdminServiceUnitTest.class
+com\qa\hobbyproject\sfgsitetest\CustomerLogin.class
+com\qa\hobbyproject\sfgsitetest\CustomerSignUp.class
+com\qa\hobbyproject\sfgsitetest\AdminPortal.class
+com\qa\hobbyproject\HobbyProjectApplicationTests.class
+com\qa\hobbyproject\controllertests\AdminControllerUnitTest.class
+com\qa\hobbyproject\sfgsitetest\Exclusive.class
+com\qa\hobbyproject\servicetests\CustomerServiceUnitTest.class
+com\qa\hobbyproject\controllertests\CustomerControllerUnitTest.class
+com\qa\hobbyproject\sfgsitetest\Gallery.class

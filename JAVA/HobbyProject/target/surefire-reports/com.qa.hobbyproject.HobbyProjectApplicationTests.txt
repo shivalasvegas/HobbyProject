@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.qa.hobbyproject.HobbyProjectApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 15.145 s - in com.qa.hobbyproject.HobbyProjectApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 8.583 s - in com.qa.hobbyproject.HobbyProjectApplicationTests

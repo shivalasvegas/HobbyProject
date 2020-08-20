@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.qa.hobbyproject.servicetests.CustomerServiceUnitTest
 -------------------------------------------------------------------------------
-Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.859 s - in com.qa.hobbyproject.servicetests.CustomerServiceUnitTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.368 s - in com.qa.hobbyproject.servicetests.CustomerServiceUnitTest
