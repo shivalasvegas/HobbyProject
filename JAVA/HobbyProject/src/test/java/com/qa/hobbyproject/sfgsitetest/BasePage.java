@@ -3,32 +3,24 @@ package com.qa.hobbyproject.sfgsitetest;
 
 import org.junit.After;
 
-import java.util.logging.Logger;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
-//import org.openqa.selenium.By;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import org.junit.experimental.categories.Category;
-import org.openqa.selenium.WebDriver;
-import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-//@RunWith()
-//@RunWith(SpringRunner.class) 
+
 @SpringBootTest
 @RunWith(SpringJUnit4ClassRunner.class)
-//@ContextConfiguration(classes = ITConfig.class)
 public class BasePage {
 	
 	private WebDriver driver;
@@ -43,26 +35,93 @@ public class BasePage {
 	}
 	
 	WebElement target;
-	//private final static Logger LOGGER = Logger.getLogger(BasePage.class.getName());
-	//String logMessage;
-	
-//	@Test
-//    public void test1() throws InterruptedException {
-//        driver.get("http://google.com");
-//    }
+
 	
 	@Test
-	public void test2() throws InterruptedException {
-		//driver.get("http://localhost:3003/index.html");
+	public void test_carousel1() throws InterruptedException {
+	
 		driver.get("http://35.234.148.111/index.html");
-		//target = driver.findElement(By.xpath("//*[@id=\"tsf\"]/div[2]/div[1]/div[1]/div/div[2]/input"));
-		Thread.sleep(9000);
-		//target.sendKeys();
-		//target.submit();
-//		target = driver.findElement(By.linkText("Images")); 
-//		target.click();
-		//Thread.sleep(9000);
+		Thread.sleep(3000);
+		target = driver.findElement(By.id("signUpButton"));
+		target.click();
+		Thread.sleep(9000); 
+		assertEquals("SFG - Sign Up", driver.getTitle());
+		Thread.sleep(3000);
 	}
+	
+	@Test
+	public void test_carousel2() throws InterruptedException {
+	
+		driver.get("http://35.234.148.111/index.html");
+		Thread.sleep(3000);
+		target = driver.findElement(By.id("workshopButton"));
+		target.click();
+		Thread.sleep(9000); 
+		assertEquals("SFG - Workshops", driver.getTitle());
+		Thread.sleep(3000);
+	}
+	
+	
+	@Test
+	public void test_carousel3() throws InterruptedException {
+	
+		driver.get("http://35.234.148.111/index.html");
+		Thread.sleep(3000);
+		target = driver.findElement(By.id("galleryButton"));
+		target.click();
+		Thread.sleep(9000); 
+		assertEquals("SFG - Gallery", driver.getTitle());
+		Thread.sleep(3000);
+	}
+	
+	@Test
+	public void test_login() throws InterruptedException {
+	
+		driver.get("http://35.234.148.111/index.html");
+		Thread.sleep(3000);
+		target = driver.findElement(By.id("customerLoginButton"));
+		target.click();
+		Thread.sleep(9000); 
+		assertEquals("SFG - Customer Login", driver.getTitle());
+		Thread.sleep(3000);
+	}
+	
+	@Test
+	public void test_nav1() throws InterruptedException {
+	
+		driver.get("http://35.234.148.111/index.html");
+		Thread.sleep(3000);
+		target = driver.findElement(By.id("navGallery"));
+		target.click();
+		Thread.sleep(9000); 
+		assertEquals("SFG - Gallery", driver.getTitle());
+		Thread.sleep(3000);
+	}
+	
+	@Test
+	public void test_nav2() throws InterruptedException {
+	
+		driver.get("http://35.234.148.111/index.html");
+		Thread.sleep(3000);
+		target = driver.findElement(By.id("navWorkshops"));
+		target.click();
+		Thread.sleep(9000); 
+		assertEquals("SFG - Workshops", driver.getTitle());
+		Thread.sleep(3000);
+	}
+	
+	@Test
+	public void test_nav3() throws InterruptedException {
+	
+		driver.get("http://35.234.148.111/index.html");
+		Thread.sleep(3000);
+		target = driver.findElement(By.id("navHome"));
+		target.click();
+		Thread.sleep(9000); 
+		assertEquals("SFG - Home", driver.getTitle());
+		Thread.sleep(3000);
+	}
+	
 	
 	@After
     public void after() {
