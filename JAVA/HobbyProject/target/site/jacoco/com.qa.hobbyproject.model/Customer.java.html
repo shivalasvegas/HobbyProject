@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Customer.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HobbyProject</a> &gt; <a href="index.source.html" class="el_package">com.qa.hobbyproject.model</a> &gt; <span class="el_source">Customer.java</span></div><h1>Customer.java</h1><pre class="source lang-java linenums">package com.qa.hobbyproject.model;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name=&quot;customers&quot;)
+public class Customer {
+
+	@Id
+	@GeneratedValue
+	@Column(name=&quot;customer_id&quot;)
+	private int customerId;
+	@Column(length=50, name=&quot;customer_name&quot;)
+	private String customerName;
+	@Column(length=100, name=&quot;customer_address&quot;)
+	private String customerAddress;
+	@Column(length=20, name=&quot;customer_phone&quot;)
+	private String customerPhone;
+	@Column(length=100, name=&quot;customer_email&quot;, unique=true, nullable = false)
+	private String customerEmail;
+	@Column(length=15, name=&quot;customer_password&quot;)
+	private String customerPassword;
+	
+	public Customer() {
+<span class="fc" id="L29">		super();</span>
+<span class="fc" id="L30">	}</span>
+	
+<span class="fc" id="L32">	public Customer(String customerName, String customerAddress, String customerPhone, String customerEmail, String customerPassword) {</span>
+		
+<span class="fc" id="L34">		this.customerName = customerName;</span>
+<span class="fc" id="L35">		this.customerAddress = customerAddress;</span>
+<span class="fc" id="L36">		this.customerPhone = customerPhone;</span>
+<span class="fc" id="L37">		this.customerEmail = customerEmail;</span>
+<span class="fc" id="L38">		this.customerPassword = customerPassword;</span>
+<span class="fc" id="L39">	}</span>
+	
+<span class="nc" id="L41">	public Customer(int customerId, String customerName, String customerAddress, String customerPhone, String customerEmail, String customerPassword) {</span>
+		
+<span class="nc" id="L43">		this.customerId = customerId;</span>
+<span class="nc" id="L44">		this.customerName = customerName;</span>
+<span class="nc" id="L45">		this.customerAddress = customerAddress;</span>
+<span class="nc" id="L46">		this.customerPhone = customerPhone;</span>
+<span class="nc" id="L47">		this.customerEmail = customerEmail;</span>
+<span class="nc" id="L48">		this.customerPassword = customerPassword;</span>
+<span class="nc" id="L49">	}</span>
+	
+	public int getCustomerId() {
+<span class="fc" id="L52">		return customerId;</span>
+	}
+	public void setCustomerId(int customerId) {
+<span class="fc" id="L55">		this.customerId = customerId;</span>
+<span class="fc" id="L56">	}</span>
+	
+	
+	public String getCustomerAddress() {
+<span class="fc" id="L60">		return this.customerAddress;</span>
+	}
+	
+	
+	public void setCustomerAddress(String customerAddress) {
+<span class="fc" id="L65">		this.customerAddress = customerAddress;</span>
+<span class="fc" id="L66">	}</span>
+	
+	
+	public String getCustomerPhone() {
+<span class="fc" id="L70">		return this.customerPhone;</span>
+	}
+	public void setCustomerPhone(String customerPhone) {
+<span class="fc" id="L73">		this.customerPhone = customerPhone;</span>
+<span class="fc" id="L74">	}</span>
+
+	
+	public String getCustomerName() {
+	
+<span class="fc" id="L79">		return this.customerName;</span>
+	}
+
+	
+	public void setCustomerName(String name) {
+<span class="fc" id="L84">	 this.customerName = name;</span>
+		
+<span class="fc" id="L86">	}</span>
+
+	
+	public String getCustomerEmail() {
+		
+<span class="fc" id="L91">		return this.customerEmail;</span>
+	}
+
+
+	public void setCustomerEmail(String email) {
+<span class="fc" id="L96">		this.customerEmail = email;</span>
+		
+<span class="fc" id="L98">	}</span>
+
+	
+	public String getCustomerPassword() {
+		
+<span class="fc" id="L103">		return this.customerPassword;</span>
+	}
+
+
+	public void setCustomerPassword(String password) {
+		
+<span class="fc" id="L109">		this.customerPassword = password;</span>
+<span class="fc" id="L110">	}</span>
+
+	
+	
+	
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

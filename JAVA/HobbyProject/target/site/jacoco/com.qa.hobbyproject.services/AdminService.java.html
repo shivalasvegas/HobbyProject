@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AdminService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HobbyProject</a> &gt; <a href="index.source.html" class="el_package">com.qa.hobbyproject.services</a> &gt; <span class="el_source">AdminService.java</span></div><h1>AdminService.java</h1><pre class="source lang-java linenums">package com.qa.hobbyproject.services;
+
+import java.util.List;
+import java.util.logging.Logger;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.qa.hobbyproject.exceptions.IdNotFoundException;
+import com.qa.hobbyproject.model.Admin;
+
+import com.qa.hobbyproject.repositories.AdminRepository;
+
+@Service
+<span class="fc" id="L15">public class AdminService {</span>
+
+<span class="fc" id="L17">	private final static Logger LOGGER = Logger.getLogger(Logger.class.getName());</span>
+
+	
+	@Autowired
+	AdminRepository adminRepo;
+
+	// Create
+	public String createAdmin(Admin admin) {
+<span class="fc" id="L25">		this.adminRepo.save(admin);</span>
+<span class="fc" id="L26">		return &quot;Admin record created&quot;;</span>
+	}
+
+	// Read
+	public Admin readAdmin(int id) {
+<span class="fc" id="L31">		Admin admin = this.adminRepo.findById(id).orElseThrow(IdNotFoundException::new);</span>
+<span class="fc" id="L32">		LOGGER.info(&quot;Read Admin with id: &quot; + admin.getAdminId()); </span>
+<span class="fc" id="L33">		return admin;</span>
+	}
+
+	public List&lt;Admin&gt; readAllAdmins() {
+<span class="fc" id="L37">		List&lt;Admin&gt; adminRecords = this.adminRepo.findAll();</span>
+<span class="fc" id="L38">		LOGGER.info(&quot;Read Admins&quot;); </span>
+<span class="fc" id="L39">		return adminRecords;</span>
+
+	}
+	
+	public boolean checkAdminDetails(String adminEmail, String adminPassword) {
+<span class="fc" id="L44">		boolean isAdmin = false;</span>
+<span class="fc" id="L45">		LOGGER.info(&quot;Checking admin data&quot;); </span>
+<span class="fc" id="L46">		Admin admin = this.adminRepo.findByAdminEmail(adminEmail);</span>
+<span class="pc bpc" id="L47" title="1 of 2 branches missed.">		if (admin==null) isAdmin = false;</span>
+<span class="fc" id="L48">		else isAdmin = true;</span>
+		
+<span class="pc bpc" id="L50" title="2 of 4 branches missed.">		if (admin.getAdminPassword() == adminPassword &amp;&amp; isAdmin) {</span>
+<span class="fc" id="L51">			isAdmin = true;</span>
+		}
+			
+<span class="fc" id="L54">		return isAdmin;</span>
+
+	}
+
+
+	// Update
+	public Admin updateAdmin(Admin updatedAdmin, int id) {
+<span class="fc" id="L61">		Admin existingAdmin = this.adminRepo.findById(id).orElseThrow(IdNotFoundException::new);</span>
+
+<span class="fc" id="L63">		existingAdmin.setAdminName(updatedAdmin.getAdminName());</span>
+<span class="fc" id="L64">		existingAdmin.setAdminEmail(updatedAdmin.getAdminEmail());</span>
+<span class="fc" id="L65">		existingAdmin.setAdminPassword(updatedAdmin.getAdminPassword());</span>
+		
+<span class="fc" id="L67">		Admin saved = this.adminRepo.save(existingAdmin);</span>
+<span class="fc" id="L68">		LOGGER.info(&quot;Uodated admin with id: &quot; + existingAdmin.getAdminId());</span>
+<span class="fc" id="L69">		return saved;</span>
+	}
+
+	// Delete
+	public boolean deleteAdmin(int id) {
+<span class="fc" id="L74">		Admin admin = this.adminRepo.findById(id).orElseThrow(IdNotFoundException::new);</span>
+<span class="fc" id="L75">		LOGGER.info(&quot;Deleting admin with id: &quot; + admin.getAdminId());</span>
+		
+<span class="fc" id="L77">		this.adminRepo.deleteById(id);</span>
+<span class="pc bpc" id="L78" title="1 of 2 branches missed.">		boolean deleted = !this.adminRepo.existsById(id);</span>
+<span class="fc" id="L79">		LOGGER.info(&quot;Admin deleted&quot;);</span>
+<span class="fc" id="L80">		return deleted;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

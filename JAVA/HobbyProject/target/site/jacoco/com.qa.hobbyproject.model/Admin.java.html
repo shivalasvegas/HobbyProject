@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Admin.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HobbyProject</a> &gt; <a href="index.source.html" class="el_package">com.qa.hobbyproject.model</a> &gt; <span class="el_source">Admin.java</span></div><h1>Admin.java</h1><pre class="source lang-java linenums">package com.qa.hobbyproject.model;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name=&quot;admins&quot;)
+public class Admin {
+	
+	@Id
+	@GeneratedValue
+	@Column(name=&quot;admin_id&quot;)
+	private int adminId;
+	
+	@Column(length=50, name=&quot;admin_name&quot;)
+	private String adminName;
+	@Column(length=100, name=&quot;admin_email&quot;)
+	private String adminEmail;
+	@Column(length=15, name=&quot;admin_password&quot;)
+	private String adminPassword;
+	
+<span class="fc" id="L25">	public Admin() {</span>
+		
+<span class="fc" id="L27">	}</span>
+	
+<span class="fc" id="L29">	public Admin(String adminName, String adminEmail, String adminPassword) {</span>
+		
+<span class="fc" id="L31">		this.adminName = adminName;</span>
+<span class="fc" id="L32">		this.adminEmail = adminEmail;</span>
+<span class="fc" id="L33">		this.adminPassword = adminPassword;</span>
+		
+<span class="fc" id="L35">	}</span>
+	
+<span class="nc" id="L37">	public Admin(int adminId, String adminEmail, String adminPassword) {</span>
+		
+<span class="nc" id="L39">		this.adminId = adminId;</span>
+<span class="nc" id="L40">		this.adminEmail = adminEmail;</span>
+<span class="nc" id="L41">		this.adminPassword = adminPassword;</span>
+		
+<span class="nc" id="L43">	}</span>
+
+	public int getAdminId() {
+<span class="fc" id="L46">		return adminId;</span>
+	}
+
+	public void setAdminId(int adminId) {
+<span class="fc" id="L50">		this.adminId = adminId;</span>
+<span class="fc" id="L51">	}</span>
+
+	public String getAdminName() {
+<span class="fc" id="L54">		return adminName;</span>
+	}
+
+	public void setAdminName(String adminName) {
+<span class="fc" id="L58">		this.adminName = adminName;</span>
+<span class="fc" id="L59">	}</span>
+
+	public String getAdminEmail() {
+<span class="fc" id="L62">		return adminEmail;</span>
+	}
+
+	public void setAdminEmail(String adminEmail) {
+<span class="fc" id="L66">		this.adminEmail = adminEmail;</span>
+<span class="fc" id="L67">	}</span>
+
+	public String getAdminPassword() {
+<span class="fc" id="L70">		return adminPassword;</span>
+	}
+
+	public void setAdminPassword(String adminPassword) {
+<span class="fc" id="L74">		this.adminPassword = adminPassword;</span>
+<span class="fc" id="L75">	}</span>
+
+	
+	
+
+
+	
+}
+	
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

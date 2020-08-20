@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.qa.hobbyproject.servicetests.AdminServiceUnitTest
+-------------------------------------------------------------------------------
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.481 s - in com.qa.hobbyproject.servicetests.AdminServiceUnitTest

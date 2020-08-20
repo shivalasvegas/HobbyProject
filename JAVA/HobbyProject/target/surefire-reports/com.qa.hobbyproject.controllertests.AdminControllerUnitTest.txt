@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.qa.hobbyproject.controllertests.AdminControllerUnitTest
+-------------------------------------------------------------------------------
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.366 s - in com.qa.hobbyproject.controllertests.AdminControllerUnitTest

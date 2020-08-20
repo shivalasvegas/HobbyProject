@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CustomerService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HobbyProject</a> &gt; <a href="index.source.html" class="el_package">com.qa.hobbyproject.services</a> &gt; <span class="el_source">CustomerService.java</span></div><h1>CustomerService.java</h1><pre class="source lang-java linenums">package com.qa.hobbyproject.services;
+
+import java.util.List;
+import java.util.logging.Logger;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.qa.hobbyproject.exceptions.IdNotFoundException;
+import com.qa.hobbyproject.model.Customer;
+import com.qa.hobbyproject.repositories.CustomerRepository;
+
+@Service
+<span class="fc" id="L14">public class CustomerService {</span>
+
+<span class="fc" id="L16">	private final static Logger LOGGER = Logger.getLogger(Logger.class.getName());</span>
+	
+	
+	@Autowired
+	CustomerRepository customerRepo;
+
+	// Create
+	public String createCustomer(Customer customer) {
+<span class="fc" id="L24">		this.customerRepo.save(customer);</span>
+<span class="fc" id="L25">		return &quot;Customer record created&quot;;</span>
+	}
+
+	// Read
+	public Customer readCustomer(int id) {
+<span class="fc" id="L30">		Customer customer = this.customerRepo.findById(id).orElseThrow(IdNotFoundException::new);</span>
+<span class="fc" id="L31">		LOGGER.info(&quot;Read Customer with id: &quot; + customer.getCustomerId()); </span>
+<span class="fc" id="L32">		return customer;</span>
+	}
+
+	public List&lt;Customer&gt; readAllCustomers() {
+<span class="fc" id="L36">		List&lt;Customer&gt; customerRecords = this.customerRepo.findAll();</span>
+<span class="fc" id="L37">		LOGGER.info(&quot;Read all customer records&quot;);</span>
+<span class="fc" id="L38">		return customerRecords;</span>
+
+	}
+	
+	public boolean checkCustomerDetails(String customerEmail, String customerPassword) {
+<span class="fc" id="L43">		boolean isCustomer = false;</span>
+<span class="fc" id="L44">		LOGGER.info(&quot;Checking customer data&quot;); </span>
+<span class="fc" id="L45">		Customer customer = this.customerRepo.findByCustomerEmail(customerEmail);</span>
+<span class="pc bpc" id="L46" title="1 of 2 branches missed.">		if (customer==null) isCustomer = false;</span>
+<span class="fc" id="L47">		else isCustomer = true;</span>
+<span class="pc bpc" id="L48" title="2 of 4 branches missed.">		if (customer.getCustomerPassword() == customerPassword &amp;&amp; isCustomer) {</span>
+<span class="fc" id="L49">			isCustomer = true;</span>
+		}
+			
+<span class="fc" id="L52">		return isCustomer;</span>
+
+	}
+
+	// Update
+	public Customer updateCustomer(Customer updatedCustomer, int id) {
+<span class="fc" id="L58">		Customer existingCustomer = this.customerRepo.findById(id).orElseThrow(IdNotFoundException::new);</span>
+
+<span class="fc" id="L60">		existingCustomer.setCustomerName(updatedCustomer.getCustomerName());</span>
+<span class="fc" id="L61">		existingCustomer.setCustomerAddress(updatedCustomer.getCustomerAddress());</span>
+<span class="fc" id="L62">		existingCustomer.setCustomerPhone(updatedCustomer.getCustomerPhone());</span>
+<span class="fc" id="L63">		existingCustomer.setCustomerEmail(updatedCustomer.getCustomerEmail());</span>
+<span class="fc" id="L64">		existingCustomer.setCustomerPassword(updatedCustomer.getCustomerPassword());</span>
+<span class="fc" id="L65">		LOGGER.info(&quot;Updated customer with id: &quot; + existingCustomer.getCustomerId());</span>
+<span class="fc" id="L66">		Customer saved = this.customerRepo.save(existingCustomer);</span>
+<span class="fc" id="L67">		return saved;</span>
+	}
+
+	// Delete
+	public boolean deleteCustomer(int id) {
+<span class="fc" id="L72">		Customer customer = this.customerRepo.findById(id).orElseThrow(IdNotFoundException::new);</span>
+<span class="fc" id="L73">		LOGGER.info(&quot;Deleting customer with id: &quot; + customer.getCustomerId());</span>
+		
+<span class="fc" id="L75">		this.customerRepo.deleteById(id);</span>
+<span class="pc bpc" id="L76" title="1 of 2 branches missed.">		boolean deleted = !this.customerRepo.existsById(id);</span>
+<span class="fc" id="L77">		LOGGER.info(&quot;Customer deleted&quot;);</span>
+<span class="fc" id="L78">		return deleted;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

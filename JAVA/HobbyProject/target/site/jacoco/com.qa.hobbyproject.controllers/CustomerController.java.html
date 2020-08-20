@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CustomerController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">HobbyProject</a> &gt; <a href="index.source.html" class="el_package">com.qa.hobbyproject.controllers</a> &gt; <span class="el_source">CustomerController.java</span></div><h1>CustomerController.java</h1><pre class="source lang-java linenums">package com.qa.hobbyproject.controllers;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import org.springframework.web.bind.annotation.RestController;
+
+import com.qa.hobbyproject.exceptions.IdNotFoundException;
+import com.qa.hobbyproject.model.Customer;
+import com.qa.hobbyproject.services.CustomerService;
+
+@RestController
+@CrossOrigin
+<span class="fc" id="L22">public class CustomerController {</span>
+
+	@Autowired
+	CustomerService service;
+
+	@PostMapping(&quot;/createcustomer&quot;)
+	public String createCustomerRecord(@RequestBody Customer customer) {
+<span class="fc" id="L29">		String message = this.service.createCustomer(customer);</span>
+
+<span class="fc" id="L31">		return message;</span>
+	}
+
+	@GetMapping(&quot;/readcustomer/{id}&quot;)
+	public Customer readCustomerRecord(@PathVariable int id) {
+<span class="fc" id="L36">		Customer record = this.service.readCustomer(id);</span>
+<span class="fc" id="L37">		return record;</span>
+	}
+
+	@GetMapping(&quot;/readallcustomers&quot;)
+	public List&lt;Customer&gt; readAllCustomerRecords() {
+<span class="fc" id="L42">		List&lt;Customer&gt; record = service.readAllCustomers();</span>
+
+<span class="fc" id="L44">		return record;</span>
+	}
+	
+	@GetMapping(&quot;/checkcustomerdetails/{customerEmail}/{customerPassword}&quot;)
+	public boolean checkCustomerRecords(@PathVariable String customerEmail, @PathVariable String customerPassword) {
+<span class="fc" id="L49">		boolean isCustomer = service.checkCustomerDetails(customerEmail, customerPassword);</span>
+		
+<span class="fc" id="L51">		return isCustomer;</span>
+	}
+
+	
+	@PostMapping(&quot;/updatecustomer/{id}&quot;)
+	public Customer updateCustomerRecord1(@RequestBody Customer newCustomer, @PathVariable int id) {
+<span class="fc" id="L57">		Customer record = service.updateCustomer(newCustomer, id);</span>
+<span class="fc" id="L58">		return record;</span>
+	}
+
+
+	@DeleteMapping(&quot;/deletecustomer/{id}&quot;)
+	public String deleteCustomerRecord(@PathVariable int id) throws IdNotFoundException {
+<span class="fc" id="L64">		boolean deleted = this.service.deleteCustomer(id);</span>
+
+		String message;
+		try {
+<span class="fc bfc" id="L68" title="All 2 branches covered.">			if (deleted)</span>
+<span class="fc" id="L69">				message = &quot;Customer deleted&quot;;</span>
+			else
+<span class="fc" id="L71">				message = &quot;Id does not exist&quot;;</span>
+<span class="pc" id="L72">		} catch (IdNotFoundException customerException) {</span>
+<span class="nc" id="L73">			message = &quot;Please enter another id&quot;;</span>
+		}
+
+<span class="fc" id="L76">		return message;</span>
+	}
+	
+	@PostMapping(&quot;/deletecustomer/{id}&quot;)
+	public String deleteCustomerRecord1(@PathVariable int id) throws IdNotFoundException {
+<span class="nc" id="L81">		boolean deleted = this.service.deleteCustomer(id);</span>
+
+		String message;
+		try {
+<span class="nc bnc" id="L85" title="All 2 branches missed.">			if (deleted)</span>
+<span class="nc" id="L86">				message = &quot;Customer deleted&quot;;</span>
+			else
+<span class="nc" id="L88">				message = &quot;Id does not exist&quot;;</span>
+<span class="nc" id="L89">		} catch (IdNotFoundException customerException) {</span>
+<span class="nc" id="L90">			message = &quot;Please enter another id&quot;;</span>
+		}
+
+<span class="nc" id="L93">		return message;</span>
+	}
+	
+	@GetMapping(&quot;/deletecustomer/{id}&quot;)
+	public String deleteCustomerRecord2(@PathVariable int id) throws IdNotFoundException {
+<span class="nc" id="L98">		boolean deleted = this.service.deleteCustomer(id);</span>
+
+		String message;
+		try {
+<span class="nc bnc" id="L102" title="All 2 branches missed.">			if (deleted)</span>
+<span class="nc" id="L103">				message = &quot;Customer deleted&quot;;</span>
+			else
+<span class="nc" id="L105">				message = &quot;Id does not exist&quot;;</span>
+<span class="nc" id="L106">		} catch (IdNotFoundException customerException) {</span>
+<span class="nc" id="L107">			message = &quot;Please enter another id&quot;;</span>
+		}
+		
+<span class="nc" id="L110">		return message;</span>
+		
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>
