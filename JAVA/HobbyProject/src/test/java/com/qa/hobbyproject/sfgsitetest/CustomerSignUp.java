@@ -108,6 +108,19 @@ private WebDriver driver;
 		Thread.sleep(3000);
 	}
 	
+	@Test
+	public void test_adminPortal() throws InterruptedException {
+	
+		driver.get("http://35.234.148.111/signup.html");
+		Thread.sleep(3000);
+		target = driver.findElement(By.id("adminPortalLink"));
+		target.click();
+		Thread.sleep(9000); 
+		assertEquals("SFG - Admin Portal", driver.getTitle());
+		Thread.sleep(3000);
+	}
+	
+	
 	
 	@After
     public void after() {

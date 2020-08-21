@@ -41,7 +41,7 @@ public class BasePage {
 	public void test_carousel1() throws InterruptedException {
 	
 		driver.get("http://35.234.148.111/index.html");
-		Thread.sleep(3000);
+		Thread.sleep(9000);
 		target = driver.findElement(By.id("signUpButton"));
 		target.click();
 		Thread.sleep(9000); 
@@ -53,7 +53,7 @@ public class BasePage {
 	public void test_carousel2() throws InterruptedException {
 	
 		driver.get("http://35.234.148.111/index.html");
-		Thread.sleep(3000);
+		Thread.sleep(9000);
 		target = driver.findElement(By.id("workshopButton"));
 		target.click();
 		Thread.sleep(9000); 
@@ -66,7 +66,7 @@ public class BasePage {
 	public void test_carousel3() throws InterruptedException {
 	
 		driver.get("http://35.234.148.111/index.html");
-		Thread.sleep(3000);
+		Thread.sleep(9000);
 		target = driver.findElement(By.id("galleryButton"));
 		target.click();
 		Thread.sleep(9000); 
