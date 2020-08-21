@@ -25,13 +25,13 @@ https://github.com/shivalasvegas/HobbyProject.git
 ## Design
 The website was designed around three different use cases:  anonymous users, authenticated users and admins.
 
-![Website Design - customers](/readmeImages/websiteDesign1.jpg)
+![Website Design - customers](websiteDesign1.jpg)
 
-![Website Design - admins](/readmeImages/websiteDesign3.jpg)
+![Website Design - admins](websiteDesign3.jpg)
 
 The back-end application was designed for these use cases, mirrors the KISS design for the website.
 
-![Components](/readmeImages/components.jpg)
+![Components](components.jpg)
 
 ## Management
 
