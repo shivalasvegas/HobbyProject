@@ -27,14 +27,18 @@ The website was designed around three different use cases:  anonymous users, aut
 
 ![Website Design - context](context.jpg)
 
-A more in depth view of pathways through the website.
 
 Pathway for authenticated users:
+
+
 ![Website Design - customers](websiteDesign1.jpg)
 
 
 Pathway for admins:
+
+
 ![Website Design - admins](websiteDesign3.jpg)
+
 
 The back-end application was designed for these use cases, mirrors the KISS design for the website.
 
