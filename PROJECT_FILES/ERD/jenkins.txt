@@ -1,0 +1,20 @@
+59c5c761b34f8ecf3cc73bd01c5e788e46c4473190add476b973cebae34d6330
+
+1922255d9a96476990e4ccebd5fbd1ea
+
+5c9987a9625946aea0a221432d66713c
+
+b992827b16844e27ace4c659542253c3
+
+11c03d59645e4825bbce7dc7662afae6
+
+1d68d54da8014bdebdef6580a213d0ac
+
+/var/jenkins_home/secrets/initialAdminPassword
+
+
+sonarqube 5763eacd5073998ac96693bebc7bf03e2073aec3
+
+mvn sonar:sonar \
+  -Dsonar.host.url=http://34.105.129.153:9000 \
+  -Dsonar.login=da118e47064c113af15081a950438f507dccd15c

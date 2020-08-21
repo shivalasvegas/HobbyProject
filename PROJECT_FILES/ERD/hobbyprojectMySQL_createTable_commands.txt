@@ -1,0 +1,1 @@
+CREATE TABLE IF NOT EXISTS comments (comment_id int(11) NOT NULL AUTO_INCREMENT,  fk_customer_id int(11) NOT NULL, comment char(200) NOT NULL, PRIMARY KEY (comment_id), KEY fk_customer_id (fk_customer_id), CONSTRAINT comments_ibfk_1 FOREIGN KEY (fk_customer_id) REFERENCES customers (customer_id);

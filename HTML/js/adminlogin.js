@@ -1,9 +1,11 @@
 
     async function getAdminData(form){
-        
+        console.log(form)
         let formData = new FormData(form);
 
-        const url = `http://localhost:8003/checkadmindetails/${formData.get("adminEmail")}/${formData.get("adminPassword")}`;
+        setTimeout(() => {}, 3000);
+
+        const url = `http://localhost:8003/checkadmindetails/${formData.get("inputEmail")}/${formData.get("inputPassword")}`;
         console.log(url);
         const response = await fetch(url);
         const data = await response.json();
